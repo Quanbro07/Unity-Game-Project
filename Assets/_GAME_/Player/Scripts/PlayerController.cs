@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     #region Dash
     private bool canDash = true;
     private bool isDashing = false;
-    private float dashPower = 10f;
-    private float dashTime = 0.4f;
-    private float dashCoolDown = 0.1f;
+    [SerializeField] private float dashPower = 10f;
+    [SerializeField] private float dashTime = 0.4f;
+    [SerializeField] private float dashCoolDown = 0.1f;
 
     #endregion
 
@@ -39,21 +39,23 @@ public class PlayerController : MonoBehaviour
     {
         GatherInput();
         HandleDash();
-
     }
     #endregion
 
     #region FixedUpdate
-        private void FixedUpdate()
-        {
-            UpdateMovement();
-            UpdateDirection();
-        }
+    private void FixedUpdate()
+    {
+        UpdateMovement();
+        UpdateDirection();
+        
+    }
     #endregion
     private void GatherInput()
     {
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
 
     }
 
@@ -100,7 +102,8 @@ public class PlayerController : MonoBehaviour
         }
 
        
-       UpdateAnimation(animaitonChoice);
+        UpdateAnimation(animaitonChoice);
+  
 
     }
 
