@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -11,9 +12,7 @@ public class PlayerController : MonoBehaviour
     #region Movement
     [SerializeField] private float moveSpeed = 5f;
     private Vector2 movement;
-    private int moveRight = Animator.StringToHash("PlayerMoveRight");
-    private int moveUp = Animator.StringToHash("PlayerMoveUp");
-    private int dash = Animator.StringToHash("PlayerDash");
+    private Vector2 lastDirection = Vector2.zero;
     #endregion
 
     #region Dash
@@ -26,7 +25,15 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Animation
-    private int animaitonChoice = Animator.StringToHash("PlayerDash");
+    private int animaitonChoice = Animator.StringToHash("PlayerIdleRight");
+
+    private int playerMoveRight = Animator.StringToHash("PlayerMoveRight");
+    private int playerMoveUp = Animator.StringToHash("PlayerMoveUp");
+    private int playerDash = Animator.StringToHash("PlayerDash");
+
+    private int playerIdleRight = Animator.StringToHash("PlayerIdleRight");
+    private int playerIdleUp = Animator.StringToHash("PlayerIdleUp");
+    private int playerIdleDown = Animator.StringToHash("PlayerIdleDown");
     #endregion
 
     private void Awake()
@@ -61,10 +68,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDash()
     {
-        if (Input.GetMouseButtonDown(1) && canDash)
+        if (Input.GetMouseButtonDown(1) && canDash && movement != Vector2.zero)
         {
             Debug.Log("Movement vector: " + rb.linearVelocity);
-            UpdateAnimation(dash);
+            UpdateAnimation(playerDash);
             StartCoroutine(Dash());
         }
     }
@@ -80,28 +87,46 @@ public class PlayerController : MonoBehaviour
     {
         if (isDashing) return;
 
-        if (movement.x == -1) // Move Left
-        {
-            animaitonChoice = moveRight;
-            spriteRenderer.flipX = true;
+        // Not Moving
+        if(movement.x == 0 && movement.y == 0)
+        {   
+            if(lastDirection != Vector2.zero && lastDirection == Vector2.up)
+            {
+                animaitonChoice = playerIdleUp;
+            }
+            else
+            {
+                animaitonChoice = playerIdleRight;
+            }
         }
-        else if (movement.x == 1) // Move Right
+        else // Moving
         {
-            spriteRenderer.flipX = false;
-            animaitonChoice = moveRight;
+            if (movement.x == -1) // Move Left
+            {
+                animaitonChoice = playerMoveRight;
+                spriteRenderer.flipX = true;
+            }
+            else if (movement.x == 1) // Move Right
+            {
+                spriteRenderer.flipX = false;
+                animaitonChoice = playerMoveRight;
+            }
+
+            if (movement.y == 1) // Move Up
+            {
+                animaitonChoice = playerMoveUp;
+            }
+            else if (movement.y == -1) // Move Down
+            {
+                animaitonChoice = playerMoveRight;
+
+            }
+
+            lastDirection = movement;
         }
 
-        if (movement.y == 1) // Move Up
-        {
-            animaitonChoice = moveUp;
-        }
-        else if (movement.y == -1) // Move Down
-        {
-            animaitonChoice = moveRight;
-            
-        }
+        Debug.Log(lastDirection);
 
-       
         UpdateAnimation(animaitonChoice);
   
 
