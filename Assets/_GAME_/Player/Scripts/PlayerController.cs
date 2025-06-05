@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private KnockBack knockBack;
+
     #region Animation
     private int animaitonChoice = Animator.StringToHash("PlayerIdleRight");
 
@@ -59,9 +61,11 @@ public class PlayerController : MonoBehaviour
     #endregion
     private void GatherInput()
     {
-
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if(!knockBack.IsKnocked)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
 
 
     }
@@ -70,7 +74,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && canDash && movement != Vector2.zero)
         {
-            Debug.Log("Movement vector: " + rb.linearVelocity);
             UpdateAnimation(playerDash);
             StartCoroutine(Dash());
         }
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateMovement()
     {
-        if (isDashing) return;
+        if (isDashing || knockBack.IsKnocked) return;
 
         rb.linearVelocity = movement.normalized * moveSpeed;
     }
@@ -125,7 +128,6 @@ public class PlayerController : MonoBehaviour
             lastDirection = movement;
         }
 
-        Debug.Log(lastDirection);
 
         UpdateAnimation(animaitonChoice);
   
