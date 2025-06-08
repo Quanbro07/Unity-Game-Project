@@ -20,11 +20,12 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     [SerializeField] private float dashPower = 10f;
     [SerializeField] private float dashTime = 0.4f;
-    [SerializeField] private float dashCoolDown = 0.1f;
+    [SerializeField] private float dashCoolDown = 1f;
 
     #endregion
 
     [SerializeField] private KnockBack knockBack;
+    [SerializeField] private PlayerAttack PlayerAttack;
 
     #region Animation
     private int animaitonChoice = Animator.StringToHash("PlayerIdleRight");
@@ -36,12 +37,9 @@ public class PlayerController : MonoBehaviour
     private int playerIdleRight = Animator.StringToHash("PlayerIdleRight");
     private int playerIdleUp = Animator.StringToHash("PlayerIdleUp");
     private int playerIdleDown = Animator.StringToHash("PlayerIdleDown");
+
     #endregion
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 
     #region Tick
     private void Update()
@@ -55,6 +53,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateMovement();
+
+        // Debug.Log($"FixedUpdate - IsAttack: {PlayerAttack.IsAttack}, Frame: {Time.frameCount}");
+
         UpdateDirection();
         
     }
@@ -81,17 +82,24 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateMovement()
     {
-        if (isDashing || knockBack.IsKnocked) return;
+        if (isDashing || knockBack.IsKnocked || PlayerAttack.IsAttack) return;
 
         rb.linearVelocity = movement.normalized * moveSpeed;
     }
 
     private void UpdateDirection()
     {
-        if (isDashing) return;
+        // Debug.Log($"UpdateDirection called - IsAttack: {PlayerAttack.IsAttack}, isDashing: {isDashing}, IsKnocked: {knockBack.IsKnocked}");
 
+        if (isDashing || knockBack.IsKnocked || PlayerAttack.IsAttack)
+        {
+            return;
+        }
+         
+
+         
         // Not Moving
-        if(movement.x == 0 && movement.y == 0)
+        if (movement.x == 0 && movement.y == 0)
         {   
             if(lastDirection != Vector2.zero && lastDirection == Vector2.up)
             {
@@ -127,11 +135,8 @@ public class PlayerController : MonoBehaviour
 
             lastDirection = movement;
         }
-
-
+        // Debug.Log($"About to call UpdateAnimation with: {animaitonChoice}");
         UpdateAnimation(animaitonChoice);
-  
-
     }
 
     private IEnumerator Dash()
@@ -150,6 +155,8 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimation(int animation)
     {
+        if (isDashing || PlayerAttack.IsAttack || knockBack.IsKnocked) return;
+        // Debug.Log($"Actually setting animation: {animation}");
         animator.CrossFade(animation, 0);
     }
 }
