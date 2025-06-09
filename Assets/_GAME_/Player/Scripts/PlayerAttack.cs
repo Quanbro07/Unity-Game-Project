@@ -6,7 +6,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject attackArea = null;
     [SerializeField] private float timeToAttack; // 0.4
     
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator playerAnimator;
+
     private int playerAttack = Animator.StringToHash("PLayAttack_1");
 
     public bool IsAttack => isAttack;
@@ -37,27 +38,16 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        Debug.Log($"Attack started - Frame: {Time.frameCount}, Time: {Time.time}");
 
         isAttack = true;
         attackArea.SetActive(true);
         updateAttackAnimation();
 
-        Debug.Log($"Starting wait for {timeToAttack} seconds at time: {Time.time}");
 
-        // Break the wait into smaller chunks to see where it stops
-        float waitTime = 0f;
-        while (waitTime < timeToAttack)
-        {
-            yield return new WaitForSeconds(0.1f);
-            waitTime += 0.1f;
-            Debug.Log($"Waited {waitTime} seconds so far...");
-        }
+        yield return new WaitForSeconds(timeToAttack);
 
-        Debug.Log($"Wait finished - Frame: {Time.frameCount}, Time: {Time.time}");
         isAttack = false;
         attackArea.SetActive(false);
-        Debug.Log($"Attack ended - Frame: {Time.frameCount}, Time: {Time.time}");
 
     }
 
@@ -65,8 +55,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(isAttack)
         {
-            Debug.Log($"Setting attack animation: {playerAttack}");
-            animator.CrossFade(playerAttack, 0, 0);
+            playerAnimator.CrossFade(playerAttack, 0, 0);
         }
     }
 }
