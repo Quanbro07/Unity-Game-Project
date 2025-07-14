@@ -4,16 +4,18 @@ public class PlayerAnimationEvents : MonoBehaviour
 {
     [SerializeField] private WeaponListening weaponListening;
     [SerializeField] private WeaponEffectListening weaponEffectListening;
+    [SerializeField] private PlayerAttack playerAttack; 
+
     private void EnableAll()
     {
         if (weaponListening != null)
         {
-            weaponListening.swingWeapon();
+            weaponListening.swingWeapon(playerAttack.currentCombo);
         }
 
         if (weaponEffectListening != null)
         {
-            weaponEffectListening.EnableEffect();
+            weaponEffectListening.EnableEffect(playerAttack.currentCombo);
         }
     }
 
@@ -22,12 +24,12 @@ public class PlayerAnimationEvents : MonoBehaviour
         Debug.Log("DisableAll");
         if (weaponListening != null)
         {
-            weaponListening.disableWeapon();
+            weaponListening.disableWeapon(playerAttack.currentCombo);
         }
 
         if (weaponEffectListening != null)
         {
-            weaponEffectListening.DisableEffect();
+            weaponEffectListening.DisableEffect(playerAttack.currentCombo);
         }
     }
 

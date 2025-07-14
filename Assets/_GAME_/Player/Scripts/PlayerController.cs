@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private GameObject AttackArea;
+    bool isFacingLeft = true;
 
     #region Movement
     [SerializeField] private float moveSpeed = 5f;
@@ -116,11 +119,15 @@ public class PlayerController : MonoBehaviour
             {
                 animaitonChoice = playerMoveRight;
                 spriteRenderer.flipX = true;
+                weaponHolder.transform.localScale = new Vector3(-1, 1, 1);
+                AttackArea.transform.localScale = new Vector3(-1, 1, 1);
             }
             else if (movement.x == 1) // Move Right
             {
                 spriteRenderer.flipX = false;
                 animaitonChoice = playerMoveRight;
+                weaponHolder.transform.localScale = new Vector3(1, 1, 1);
+                AttackArea.transform.localScale = new Vector3(1, 1, 1);
             }
 
             if (movement.y == 1) // Move Up
