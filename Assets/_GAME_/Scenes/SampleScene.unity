@@ -506,6 +506,10 @@ PrefabInstance:
       propertyPath: 'weaponSprite.Array.data[2]'
       value: 
       objectReference: {fileID: 108508545}
+    - target: {fileID: 6806594848772309078, guid: c75adf64b81c40f4198104235f4fef07, type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 1164605507}
     - target: {fileID: 6965528385649063749, guid: c75adf64b81c40f4198104235f4fef07, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.972
@@ -1920,6 +1924,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1164605507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3288825713564228869, guid: c75adf64b81c40f4198104235f4fef07, type: 3}
+  m_PrefabInstance: {fileID: 218338106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853da2bd0aa3d1045b5cb4c801314f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1203780576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6962527860203776539, guid: c75adf64b81c40f4198104235f4fef07, type: 3}
