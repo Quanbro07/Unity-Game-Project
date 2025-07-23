@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
     private bool isAttack = false;
     private bool isComboTiming = false;
 
+    private Coroutine attackCoroutine;
+
     public bool IsAttack => isAttack;
     public int currentCombo => comboStep;
 
@@ -27,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !isAttack)
         {
-            StartCoroutine(Attack());
+            attackCoroutine = StartCoroutine(Attack());
         }
     }
 
@@ -47,18 +49,14 @@ public class PlayerAttack : MonoBehaviour
     {
         isAttack = true;
 
-        // Cập nhật comboStep trước animation
         comboStep++;
         if (comboStep > 3) comboStep = 1;
 
-        // Phát animation tương ứng
         UpdateAttackAnimation(comboStep);
 
-        // Reset timer
         comboTimer = maxComboTime;
         isComboTiming = true;
 
-        // Bật attack area
         attackArea.SetActive(true);
 
         yield return new WaitForSeconds(timeToAttack);
@@ -91,5 +89,30 @@ public class PlayerAttack : MonoBehaviour
         comboStep = 0;
         comboTimer = 0f;
         isComboTiming = false;
+    }
+
+    public void DisableAttackTemporarily(float duration)
+    {
+        StartCoroutine(DisableAttackCoroutine(duration));
+    }
+
+    private IEnumerator DisableAttackCoroutine(float duration)
+    {
+        isAttack = true;
+        yield return new WaitForSeconds(duration);
+        isAttack = false;
+    }
+
+    public void ForceCancelAttack()
+    {
+        if (attackCoroutine != null)
+        {
+            StopCoroutine(attackCoroutine);
+            attackCoroutine = null;
+        }
+
+        isAttack = false;
+        attackArea.SetActive(false);
+        ResetCombo();
     }
 }

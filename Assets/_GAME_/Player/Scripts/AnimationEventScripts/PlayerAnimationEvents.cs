@@ -6,7 +6,7 @@ public class PlayerAnimationEvents : MonoBehaviour
     [SerializeField] private WeaponEffectListening weaponEffectListening;
     [SerializeField] private PlayerAttack playerAttack; 
 
-    private void EnableAll()
+    public void EnableAll()
     {
         if (weaponListening != null)
         {
@@ -19,7 +19,7 @@ public class PlayerAnimationEvents : MonoBehaviour
         }
     }
 
-    private void DisableAll()
+    public void DisableAll()
     {   
         Debug.Log("DisableAll");
         if (weaponListening != null)

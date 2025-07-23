@@ -1,55 +1,30 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int health = 100;
-    [SerializeField] private GameObject player; 
+    [SerializeField] private GameObject player;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
     [SerializeField] private KnockBack knockback;
 
     private const int MAX_HEALTH = 100;
 
-    public void TakeDamage(int amount,Vector2 attackerPosition)
+    public void TakeDamage(int amount, Vector2 attackerPosition)
     {
         health -= amount;
         knockback.ApplyKnockback(attackerPosition);
-        
-        if (player.CompareTag("Player"))
-        {
-            Debug.Log("PLAYER");
-            
-            PlayerAttack playerAttack = player.GetComponent<PlayerAttack>();
-            if (playerAttack != null)
-            {
-                Debug.Log("Disable attack input");
-                playerAttack.DisableAttackTemporarily(0.5f); // Khóa trong 0.5 giây
-            }
-
-            PlayerAnimationEvents playerAnimationEvents = player.GetComponent<PlayerAnimationEvents>();
-            if (playerAnimationEvents != null)
-            {
-                Debug.Log("DISABLEEEE");
-                playerAnimationEvents.DisableAll();
-            }
-
-            FlashOnHit();
-        }
-
-
+        FlashOnHit();
         // Dead
         if (health <= 0)
         {
-            Debug.Log("Enemy Destroyed");
             Destroy(gameObject);
         }
     }
 
-
     public void FlashOnHit()
     {
-        Debug.Log("FLASH");
         StartCoroutine(FlashCoroutine());
     }
 
@@ -57,7 +32,6 @@ public class Health : MonoBehaviour
     {
         if (animator != null)
             animator.enabled = false;
-        
 
         for (int i = 0; i < 3; i++)
         {
