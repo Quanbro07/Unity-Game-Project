@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: bfbd02de3d4001d42a0cf61183221e3c
+guid: dd3d36c65735e634aae3a9db87f2d18b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8606453610214823136
-    second: cave_0
+      213: 7117706461710752561
+    second: BoarChillRun_0
   - first:
-      213: -2203024576274436886
-    second: cave_1
+      213: 4186342486217680446
+    second: BoarChillRun_1
   - first:
-      213: -247335954560305098
-    second: cave_2
+      213: -4460237097015055820
+    second: BoarChillRun_2
   - first:
-      213: -1569878340158920211
-    second: cave_3
+      213: 3729023817146842860
+    second: BoarChillRun_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cave_0
+      name: BoarChillRun_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 55
-        width: 97
-        height: 105
+        x: 179
+        y: 11
+        width: 58
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e49bb4a5f3407770800000000000000
-      internalID: 8606453610214823136
+      spriteID: 13b95c1d05c27c260800000000000000
+      internalID: 7117706461710752561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_1
+      name: BoarChillRun_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 115
-        width: 33
-        height: 36
+        x: 259
+        y: 12
+        width: 58
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aece4bbe1d84d61e0800000000000000
-      internalID: -2203024576274436886
+      spriteID: e36612f9f40e81a30800000000000000
+      internalID: 4186342486217680446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_2
+      name: BoarChillRun_2
       rect:
         serializedVersion: 2
-        x: 127
-        y: 114
-        width: 34
-        height: 39
+        x: 334
+        y: 12
+        width: 58
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63830408249419cf0800000000000000
-      internalID: -247335954560305098
+      spriteID: 43ae56addfd0a12c0800000000000000
+      internalID: -4460237097015055820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_3
+      name: BoarChillRun_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 113
+        x: 403
+        y: 12
+        width: 58
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de96f3a97fba63ae0800000000000000
-      internalID: -1569878340158920211
+      spriteID: cee320c876720c330800000000000000
+      internalID: 3729023817146842860
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cave_0: 8606453610214823136
-      cave_1: -2203024576274436886
-      cave_2: -247335954560305098
-      cave_3: -1569878340158920211
+      BoarChillRun_0: 7117706461710752561
+      BoarChillRun_1: 4186342486217680446
+      BoarChillRun_2: -4460237097015055820
+      BoarChillRun_3: 3729023817146842860
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

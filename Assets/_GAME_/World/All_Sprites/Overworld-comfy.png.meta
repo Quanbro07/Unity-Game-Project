@@ -959,7 +959,41 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Overworld-comfy_0: -3548012197845535999
+      Overworld-comfy_1: -7994127893325663806
+      Overworld-comfy_10: 221556184353828877
+      Overworld-comfy_11: -5659668408351178345
+      Overworld-comfy_12: 4726446435874981993
+      Overworld-comfy_13: -1891273707996728370
+      Overworld-comfy_14: 7776526792863362512
+      Overworld-comfy_15: -4179457759664356249
+      Overworld-comfy_16: 2696254474544534466
+      Overworld-comfy_17: 4647640213264246942
+      Overworld-comfy_18: 5274904530234213746
+      Overworld-comfy_19: 2535389627701356194
+      Overworld-comfy_2: 295663797496715141
+      Overworld-comfy_20: 5028764366287562159
+      Overworld-comfy_21: -255503502692426479
+      Overworld-comfy_22: 7497980755344370309
+      Overworld-comfy_23: -192549305243002180
+      Overworld-comfy_24: -7381164727829722844
+      Overworld-comfy_25: 8818920850286596534
+      Overworld-comfy_26: -6394228030461387609
+      Overworld-comfy_27: 5570805662012558259
+      Overworld-comfy_28: -4371827801584970712
+      Overworld-comfy_29: 1920708007222282128
+      Overworld-comfy_3: -9096694728193380433
+      Overworld-comfy_30: 7539808768390031691
+      Overworld-comfy_31: 8164500352285238752
+      Overworld-comfy_32: -1344011666637465598
+      Overworld-comfy_33: 2794101039873556621
+      Overworld-comfy_4: 7123323829912175828
+      Overworld-comfy_5: -7125712131136930038
+      Overworld-comfy_6: -3038691947748668618
+      Overworld-comfy_7: -6514566441589140590
+      Overworld-comfy_8: 8785921607360534835
+      Overworld-comfy_9: -4114642289270538741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
