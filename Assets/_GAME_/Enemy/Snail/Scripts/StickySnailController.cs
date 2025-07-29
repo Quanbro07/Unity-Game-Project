@@ -75,7 +75,7 @@ public class StickySnailController : MonoBehaviour
         }
 
         currentAnimation = snailRun;
-        spriteRenderer.flipX = velocity.x > 0;
+        spriteRenderer.flipX = velocity.x < 0;
     }
 
     private void UpdateAnimation(int animation)
