@@ -195,6 +195,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -959,7 +972,41 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Overworld-edit_0: 2150403808862535931
+      Overworld-edit_1: 4624577931696630026
+      Overworld-edit_10: -2313700498567607065
+      Overworld-edit_11: 2118910120080935362
+      Overworld-edit_12: 1281678514274888386
+      Overworld-edit_13: 6345829780332898246
+      Overworld-edit_14: 1862753690326892809
+      Overworld-edit_15: 177971556073660881
+      Overworld-edit_16: -6657983080785092715
+      Overworld-edit_17: -3497632657578449301
+      Overworld-edit_18: -6972740522765069134
+      Overworld-edit_19: 1508915795461474922
+      Overworld-edit_2: 714462382431048649
+      Overworld-edit_20: 2172223899958472242
+      Overworld-edit_21: 5276590660948884702
+      Overworld-edit_22: -3070894731714615464
+      Overworld-edit_23: -4327557767608059019
+      Overworld-edit_24: 3713342069206560227
+      Overworld-edit_25: 8350817247657131076
+      Overworld-edit_26: -1275765437590918531
+      Overworld-edit_27: -5493491494295367215
+      Overworld-edit_28: -8567373265657963701
+      Overworld-edit_29: -2319798072873133633
+      Overworld-edit_3: -807664493413042382
+      Overworld-edit_30: -5309479168777622757
+      Overworld-edit_31: -101836609025461096
+      Overworld-edit_32: -197797514608265092
+      Overworld-edit_33: -7132953025103313938
+      Overworld-edit_4: -2677894525493125448
+      Overworld-edit_5: 7392372060508402065
+      Overworld-edit_6: -8316669155315075016
+      Overworld-edit_7: -8389353017161544043
+      Overworld-edit_8: -4294913390919491167
+      Overworld-edit_9: 1676927087816365413
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

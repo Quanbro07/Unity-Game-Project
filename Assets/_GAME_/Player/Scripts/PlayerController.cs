@@ -9,9 +9,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private GameObject AttackArea;
+    bool isFacingLeft = true;
+    
     #region Movement
     [SerializeField] private float moveSpeed = 5f;
     private Vector2 movement;
+    public Vector2 Movement => movement;
+
     private Vector2 lastDirection = Vector2.zero;
     #endregion
 

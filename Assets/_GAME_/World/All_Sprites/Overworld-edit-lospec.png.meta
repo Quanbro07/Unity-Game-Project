@@ -195,6 +195,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -959,7 +972,41 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Overworld-edit-lospec_0: -8383614949010503556
+      Overworld-edit-lospec_1: -6839383874561621657
+      Overworld-edit-lospec_10: -4210277926710005235
+      Overworld-edit-lospec_11: 5161610827678306114
+      Overworld-edit-lospec_12: 2889219401367719514
+      Overworld-edit-lospec_13: -680554705580200355
+      Overworld-edit-lospec_14: -2865141443592266184
+      Overworld-edit-lospec_15: 7779060616754207050
+      Overworld-edit-lospec_16: -2457497964964041438
+      Overworld-edit-lospec_17: 6944909440431234022
+      Overworld-edit-lospec_18: -1859469475246365694
+      Overworld-edit-lospec_19: -4655110829982714732
+      Overworld-edit-lospec_2: -7859151311538776536
+      Overworld-edit-lospec_20: -2127087145957742871
+      Overworld-edit-lospec_21: -5629054638535316059
+      Overworld-edit-lospec_22: 3118312910494679623
+      Overworld-edit-lospec_23: -5692538859802903882
+      Overworld-edit-lospec_24: -4699182222137167670
+      Overworld-edit-lospec_25: 4435349036384558936
+      Overworld-edit-lospec_26: -8142664783078836909
+      Overworld-edit-lospec_27: 7522682063964553490
+      Overworld-edit-lospec_28: -6062289907629526927
+      Overworld-edit-lospec_29: -1210010031094177683
+      Overworld-edit-lospec_3: -4034311332659102873
+      Overworld-edit-lospec_30: -929719722787845829
+      Overworld-edit-lospec_31: -5321198255248672172
+      Overworld-edit-lospec_32: -2120413128042515532
+      Overworld-edit-lospec_33: 8744765235458258079
+      Overworld-edit-lospec_4: -3645441033272581396
+      Overworld-edit-lospec_5: -8719384014718662995
+      Overworld-edit-lospec_6: -8850947885852147378
+      Overworld-edit-lospec_7: 8809845887461308062
+      Overworld-edit-lospec_8: -5420334260327185624
+      Overworld-edit-lospec_9: 2512766420439140281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

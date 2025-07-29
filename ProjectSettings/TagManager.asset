@@ -14,7 +14,7 @@ TagManager:
   - Enemy
   - PlayerDetectionZone
   - Obsticle
-  - 
+  - Terrain
   - 
   - 
   - 
@@ -40,6 +40,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 331208309
+    locked: 0
+  - name: Object
+    uniqueID: 1942093753
     locked: 0
   - name: Shadow
     uniqueID: 1077201397
