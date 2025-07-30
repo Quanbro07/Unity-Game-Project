@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class WeaponListening : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer weaponSprite;
+    [SerializeField] private SpriteRenderer[] weaponSprite;
 
-    public void swingWeapon()
+    
+    public void swingWeapon(int currentCombo)
     {
-        weaponSprite.enabled = true;
+        weaponSprite[currentCombo-1].enabled = true;
     }
 
-    public void disableWeapon()
+    public void disableWeapon(int currentCombo)
     {
-        weaponSprite.enabled = false;
+        weaponSprite[currentCombo-1].enabled = false;
     }
 }

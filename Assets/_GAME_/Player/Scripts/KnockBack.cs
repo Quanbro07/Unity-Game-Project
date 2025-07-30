@@ -1,5 +1,6 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using Pathfinding;
 
 public class KnockBack : MonoBehaviour
 {
@@ -12,12 +13,22 @@ public class KnockBack : MonoBehaviour
     
     private bool isKnocked = false;
 
+    private AIPath aiPath;
+
+    private void Awake()
+    {
+        aiPath = GetComponent<AIPath>(); // Lấy AIPath khi start
+    }
+
     public void ApplyKnockback(Vector2 sourcePosition)
     {
-        if (rb == null || isKnocked) return;
+        if (rb == null || isKnocked)
+        {
+            return;
+        }
 
         Vector2 direction = (rb.position - (Vector2)sourcePosition).normalized;
-        Debug.Log($"Knockback Direction: {direction}, Force: {direction * knockbackForce}");
+
         if (direction.x < 0)
         {
             spriteRender.flipX = false;
@@ -30,6 +41,10 @@ public class KnockBack : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
 
         rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
+        if (aiPath != null)
+        {
+            aiPath.canMove = false;
+        }
 
         StartCoroutine(KnockbackRoutine());
     }
@@ -40,5 +55,8 @@ public class KnockBack : MonoBehaviour
         yield return new WaitForSeconds(knockbackDuration);
         isKnocked = false;
         rb.linearVelocity = Vector2.zero;
+
+        if (aiPath != null)
+            aiPath.canMove = true;
     }
 }

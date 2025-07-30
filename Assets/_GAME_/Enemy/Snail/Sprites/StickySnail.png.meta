@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: bfbd02de3d4001d42a0cf61183221e3c
+guid: e56b29c173b5b76459e974f63028535d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8606453610214823136
-    second: cave_0
+      213: 5791309268474177596
+    second: StickySnail_0
   - first:
-      213: -2203024576274436886
-    second: cave_1
+      213: -7586150592179511116
+    second: StickySnail_1
   - first:
-      213: -247335954560305098
-    second: cave_2
+      213: 6594893921945597897
+    second: StickySnail_2
   - first:
-      213: -1569878340158920211
-    second: cave_3
+      213: -8196127771391271933
+    second: StickySnail_3
+  - first:
+      213: -5610446025846119099
+    second: StickySnail_4
+  - first:
+      213: -3753741746531442916
+    second: StickySnail_5
+  - first:
+      213: 8520915250975791485
+    second: StickySnail_6
+  - first:
+      213: 2458164614740096389
+    second: StickySnail_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cave_0
+      name: StickySnail_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 55
-        width: 97
-        height: 105
+        x: 16
+        y: 22
+        width: 47
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e49bb4a5f3407770800000000000000
-      internalID: 8606453610214823136
+      spriteID: c38a4d3981dde5050800000000000000
+      internalID: 5791309268474177596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_1
+      name: StickySnail_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 115
-        width: 33
-        height: 36
+        x: 90
+        y: 19
+        width: 50
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aece4bbe1d84d61e0800000000000000
-      internalID: -2203024576274436886
+      spriteID: 4b06584ca3498b690800000000000000
+      internalID: -7586150592179511116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_2
+      name: StickySnail_2
       rect:
         serializedVersion: 2
-        x: 127
-        y: 114
-        width: 34
-        height: 39
+        x: 170
+        y: 15
+        width: 51
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63830408249419cf0800000000000000
-      internalID: -247335954560305098
+      spriteID: 9c733fca415c58b50800000000000000
+      internalID: 6594893921945597897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_3
+      name: StickySnail_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 113
+        x: 250
+        y: 18
+        width: 53
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +202,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de96f3a97fba63ae0800000000000000
-      internalID: -1569878340158920211
+      spriteID: 30c52848731814e80800000000000000
+      internalID: -8196127771391271933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickySnail_4
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 19
+        width: 53
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 545a0fd9011b322b0800000000000000
+      internalID: -5610446025846119099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickySnail_5
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 20
+        width: 55
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f507b05c708ebc0800000000000000
+      internalID: -3753741746531442916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickySnail_6
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 19
+        width: 54
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79de97664f504670800000000000000
+      internalID: 8520915250975791485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StickySnail_7
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 19
+        width: 52
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 585b40571b72d1220800000000000000
+      internalID: 2458164614740096389
       vertices: []
       indices: 
       edges: []
@@ -209,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      StickySnail_0: 5791309268474177596
+      StickySnail_1: -7586150592179511116
+      StickySnail_2: 6594893921945597897
+      StickySnail_3: -8196127771391271933
+      StickySnail_4: -5610446025846119099
+      StickySnail_5: -3753741746531442916
+      StickySnail_6: 8520915250975791485
+      StickySnail_7: 2458164614740096389
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

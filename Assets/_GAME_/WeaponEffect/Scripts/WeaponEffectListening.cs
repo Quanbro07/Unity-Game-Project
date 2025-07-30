@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class WeaponEffectListening : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer weaponEffect;
+    [SerializeField] private SpriteRenderer[] weaponEffect;
 
-    public void EnableEffect()
+
+    public void EnableEffect(int currentCombo)
     {
-        weaponEffect.enabled = true;
+        weaponEffect[currentCombo-1].enabled = true;
     }
 
-    public void DisableEffect()
+    public void DisableEffect(int currentCombo)
     {
-        weaponEffect.enabled = false;
+        weaponEffect[currentCombo - 1].enabled = false;
     }
 }
