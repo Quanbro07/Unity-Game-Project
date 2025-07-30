@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SlimeAttack : MonoBehaviour
+public class BoarAttack : MonoBehaviour
 {
     [SerializeField] private int damage = 3;
 

@@ -959,7 +959,41 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Overworld-rebase_0: 1064943889691522333
+      Overworld-rebase_1: -497264036810295050
+      Overworld-rebase_10: 320618642409497027
+      Overworld-rebase_11: 6309733002215102195
+      Overworld-rebase_12: 3951106019321084887
+      Overworld-rebase_13: -5152034621055216112
+      Overworld-rebase_14: 5938601820074176529
+      Overworld-rebase_15: 7844068412272283496
+      Overworld-rebase_16: -9022452589523345633
+      Overworld-rebase_17: 8688367425812310068
+      Overworld-rebase_18: 2884532012922815774
+      Overworld-rebase_19: 4043320506623587184
+      Overworld-rebase_2: -6351391288578499790
+      Overworld-rebase_20: 6357470256124740037
+      Overworld-rebase_21: -4680670450429153625
+      Overworld-rebase_22: -6881904734110144700
+      Overworld-rebase_23: -7680076243490617114
+      Overworld-rebase_24: 7283719537182280772
+      Overworld-rebase_25: 6728185373879118496
+      Overworld-rebase_26: 187238358808064904
+      Overworld-rebase_27: 7193141152631710477
+      Overworld-rebase_28: 7103504105427121689
+      Overworld-rebase_29: 9180606302208082650
+      Overworld-rebase_3: -3014208983447160394
+      Overworld-rebase_30: -5831654721239433509
+      Overworld-rebase_31: -8643381415204885963
+      Overworld-rebase_32: -4295843465839863008
+      Overworld-rebase_33: 8647316006754094373
+      Overworld-rebase_4: -6939459540056313361
+      Overworld-rebase_5: 8896717971543717923
+      Overworld-rebase_6: -9108370746694402302
+      Overworld-rebase_7: 3214676591816848106
+      Overworld-rebase_8: 2670298365054330941
+      Overworld-rebase_9: 5718740037602386684
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

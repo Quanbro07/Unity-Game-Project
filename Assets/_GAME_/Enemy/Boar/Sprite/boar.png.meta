@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: bfbd02de3d4001d42a0cf61183221e3c
+guid: b945b44825438774db41463b6dc76edb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8606453610214823136
-    second: cave_0
+      213: -1866223138761978688
+    second: boar_0
   - first:
-      213: -2203024576274436886
-    second: cave_1
+      213: 3992263817337296423
+    second: boar_1
   - first:
-      213: -247335954560305098
-    second: cave_2
+      213: 5524192067769387469
+    second: boar_2
   - first:
-      213: -1569878340158920211
-    second: cave_3
+      213: -980019186066030945
+    second: boar_3
+  - first:
+      213: -9192961599170110669
+    second: boar_4
+  - first:
+      213: -7427317343051097984
+    second: boar_5
+  - first:
+      213: 4654879610026203242
+    second: boar_6
+  - first:
+      213: -3190831076174409279
+    second: boar_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cave_0
+      name: boar_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 55
-        width: 97
-        height: 105
+        x: 65
+        y: 12
+        width: 58
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e49bb4a5f3407770800000000000000
-      internalID: 8606453610214823136
+      spriteID: 0cc4a7661f7d916e0800000000000000
+      internalID: -1866223138761978688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_1
+      name: boar_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 115
-        width: 33
-        height: 36
+        x: 131
+        y: 13
+        width: 60
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aece4bbe1d84d61e0800000000000000
-      internalID: -2203024576274436886
+      spriteID: 726d80a3ace576730800000000000000
+      internalID: 3992263817337296423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_2
+      name: boar_2
       rect:
         serializedVersion: 2
-        x: 127
-        y: 114
-        width: 34
-        height: 39
+        x: 195
+        y: 11
+        width: 60
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63830408249419cf0800000000000000
-      internalID: -247335954560305098
+      spriteID: dc9cc6eca6fd9ac40800000000000000
+      internalID: 5524192067769387469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cave_3
+      name: boar_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 113
+        x: 259
+        y: 10
+        width: 60
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +202,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de96f3a97fba63ae0800000000000000
-      internalID: -1569878340158920211
+      spriteID: f9e777d1eb54662f0800000000000000
+      internalID: -980019186066030945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_4
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 9
+        width: 60
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33b98a7c12a0c6080800000000000000
+      internalID: -9192961599170110669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_5
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 11
+        width: 60
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08857556a3edce890800000000000000
+      internalID: -7427317343051097984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_6
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 11
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6812dbb754799040800000000000000
+      internalID: 4654879610026203242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boar_7
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 13
+        width: 60
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1d85eba04e7b3d0800000000000000
+      internalID: -3190831076174409279
       vertices: []
       indices: 
       edges: []
@@ -210,10 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cave_0: 8606453610214823136
-      cave_1: -2203024576274436886
-      cave_2: -247335954560305098
-      cave_3: -1569878340158920211
+      boar_0: -1866223138761978688
+      boar_1: 3992263817337296423
+      boar_2: 5524192067769387469
+      boar_3: -980019186066030945
+      boar_4: -9192961599170110669
+      boar_5: -7427317343051097984
+      boar_6: 4654879610026203242
+      boar_7: -3190831076174409279
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

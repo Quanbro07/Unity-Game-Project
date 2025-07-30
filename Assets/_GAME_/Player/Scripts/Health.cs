@@ -10,30 +10,21 @@ public class Health : MonoBehaviour
     [SerializeField] private KnockBack knockback;
 
     private const int MAX_HEALTH = 100;
-
+        
     public void TakeDamage(int amount,Vector2 attackerPosition)
     {
         health -= amount;
         knockback.ApplyKnockback(attackerPosition);
-        
+
         if (player.CompareTag("Player"))
         {
-            Debug.Log("PLAYER");
-            
             PlayerAttack playerAttack = player.GetComponent<PlayerAttack>();
             if (playerAttack != null)
             {
-                Debug.Log("Disable attack input");
-                playerAttack.DisableAttackTemporarily(0.5f); // Khóa trong 0.5 giây
+                playerAttack.ForceCancelAttack(); // Ngắt attack + combo + slash
             }
 
-            PlayerAnimationEvents playerAnimationEvents = player.GetComponent<PlayerAnimationEvents>();
-            if (playerAnimationEvents != null)
-            {
-                Debug.Log("DISABLEEEE");
-                playerAnimationEvents.DisableAll();
-            }
-
+            // Flash & disable effects nếu cần
             FlashOnHit();
         }
 
@@ -57,17 +48,22 @@ public class Health : MonoBehaviour
     {
         if (animator != null)
             animator.enabled = false;
-        
+
+        // Tắt slash hoặc effect liên quan ngay từ đầu
+        PlayerAnimationEvents playerEvents = player.GetComponent<PlayerAnimationEvents>();
+        if (playerEvents != null)
+            playerEvents.DisableAll(); // ← Tắt slash ngay
 
         for (int i = 0; i < 3; i++)
         {
-            spriteRenderer.enabled = false; // Disappear
+            spriteRenderer.enabled = false;
             yield return new WaitForSeconds(0.1f);
-            spriteRenderer.enabled = true;  // Appear
+            spriteRenderer.enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
 
         if (animator != null)
             animator.enabled = true;
     }
+
 }
