@@ -83,6 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiPath: {fileID: 4913716860802161004}
   destinationSetter: {fileID: 5750769658374257746}
+  boarController: {fileID: 0}
 --- !u!1 &6646024085698897891
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7922708476894155380
 Transform:
   m_ObjectHideFlags: 0
