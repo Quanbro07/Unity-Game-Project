@@ -4302,7 +4302,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 331208309
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -4405,7 +4405,7 @@ MonoBehaviour:
   checkerRadius: 0.3
   terrainMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   spawnCooldown: 0.2
 --- !u!61 &8821603236907147062
 BoxCollider2D:
