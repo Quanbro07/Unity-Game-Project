@@ -37,11 +37,58 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void TakePoisionDamage(int amount)
+    {
+        health -= amount;
+
+        if (player.CompareTag("Player"))
+        {
+            PlayerAttack playerAttack = player.GetComponent<PlayerAttack>();
+            if (playerAttack != null)
+            {
+                playerAttack.ForceCancelAttack(); // Ngắt attack + combo + slash
+            }
+
+            // Flash & disable effects nếu cần
+            FlashPoisonEffect();
+        }
+
+
+        // Dead
+        if (health <= 0)
+        {
+            Debug.Log("Enemy Destroyed");
+            Destroy(gameObject);
+        }
+    }
 
     public void FlashOnHit()
     {
-        Debug.Log("FLASH");
         StartCoroutine(FlashCoroutine());
+    }
+    private void FlashPoisonEffect()
+    {
+        // Ví dụ đơn giản: đổi màu xanh lá trong 0.1s
+        StartCoroutine(FlashColor(Color.green, 0.3f));
+    }
+
+    private IEnumerator FlashColor(Color flashColor, float duration)
+    {
+        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+
+        if (sr == null)
+        {
+            Debug.LogWarning("No SpriteRenderer found on Player or its children.");
+            yield break;
+        }
+
+        Color originalColor = sr.color;
+        sr.color = flashColor;
+        
+        FlashOnHit();
+        yield return new WaitForSeconds(duration);
+
+        sr.color = originalColor;
     }
 
     private IEnumerator FlashCoroutine()
