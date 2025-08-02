@@ -21,7 +21,6 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void DisableAll()
     {   
-        Debug.Log("DisableAll");
         if (weaponListening != null)
         {
             weaponListening.disableWeapon(playerAttack.currentCombo);

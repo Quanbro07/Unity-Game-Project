@@ -33,7 +33,27 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Enemy Destroyed");
+
+            if(gameObject.CompareTag("BigSlime"))
+            {
+                GameObject managerObj = GameObject.Find("EnemyManager");
+                if (managerObj != null)
+                {
+                    EnemySpawner enemySpawner = managerObj.GetComponent<EnemySpawner>();
+                    if (enemySpawner != null)
+                    {
+                        Vector3 deadPoint = transform.position;
+                        Vector3 spawnPoint1 = deadPoint - new Vector3(1, 1, 0);
+                        Vector3 spawnPoint2 = deadPoint + new Vector3(1, 1, 0);
+
+                        enemySpawner.SpawnEnemy(spawnPoint1);
+                        enemySpawner.SpawnEnemy(spawnPoint2);
+                    }
+                }
+            }
+
             Destroy(gameObject);
+
         }
     }
 

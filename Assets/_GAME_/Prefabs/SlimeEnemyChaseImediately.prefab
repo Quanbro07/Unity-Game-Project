@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db03db021418ae4fa8ca4e307226f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 6
   player: {fileID: 1251534740546410413}
   spriteRenderer: {fileID: 8017732977936765846}
   animator: {fileID: 2399374028998246184}
