@@ -289,10 +289,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  player: {fileID: 2001091218943948786}
   spriteRenderer: {fileID: 9042483275494903402}
   animator: {fileID: 276020613511290849}
   knockback: {fileID: 1948461514836794046}
+  enemyKnockbackForce: 10
+  enemyKnockbackDuration: 0.2
 --- !u!114 &1948461514836794046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,10 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e05a9571f1f92649b595971acb93e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3298209622716144448}
-  spriteRender: {fileID: 9042483275494903402}
-  knockbackForce: 5
-  knockbackDuration: 0.2
 --- !u!114 &7208071624095843354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  knockbackForce: 5
+  knockbackDuration: 0.2
 --- !u!114 &8365139425622117866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +341,18 @@ MonoBehaviour:
   idleDelay: 1
   walkSpeed: 2
   RunSpeed: 3
+  maxHealth: 20
+  experienceOrbPrefabs: []
+  orbSpawnSpread: 0.5
+  orbDropChances:
+  - orbPrefab: {fileID: 6020200514925763559, guid: 96844286d1335a246953745198d588ae, type: 3}
+    minAmount: 2
+    maxAmount: 9
+    dropRate: 0.68
+  - orbPrefab: {fileID: 6020200514925763559, guid: 137b928a5a334f742b5c23de34a12c39, type: 3}
+    minAmount: 1
+    maxAmount: 3
+    dropRate: 0.68
 --- !u!1 &2110019633207124618
 GameObject:
   m_ObjectHideFlags: 0
