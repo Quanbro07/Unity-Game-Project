@@ -21,19 +21,48 @@ public class BoarController : MonoBehaviour
     private State currentState = State.Chill;
     [SerializeField] private float wanderRadius = 3f;
     [SerializeField] private float idleDelay = 2f; // thời gian chờ trước khi wander
-    
+
     [SerializeField] private float walkSpeed = 1.5f;
     [SerializeField] private float RunSpeed = 3f;
 
     private Transform wanderTarget;
     private float wanderCooldown = 3f;
     private float wanderTimer;
-    private bool isWaitingToWander = false; // flag để track trạng thái đang chờ
+    private bool isWaitingToWander = false;
     #endregion
+
+    #region Health System
+    [Header("Health System")]
+    public float maxHealth = 20f; // Máu tối đa của Boar
+    private float currentHealth;
+    #endregion
+
+    // =========================================================
+    // VÙNG CODE ĐÃ SỬA ĐỔI: Sử dụng một mảng/danh sách các Prefab EXP Orb
+    // =========================================================
+    [Header("Experience Drop")]
+    [SerializeField] private GameObject[] experienceOrbPrefabs;
+    public float orbSpawnSpread = 0.5f;
+
+    [System.Serializable]
+    public struct DropChance
+    {
+        public GameObject orbPrefab;
+        public int minAmount;
+        public int maxAmount;
+        [Range(0f, 1f)]
+        public float dropRate;
+    }
+
+    [SerializeField] private DropChance[] orbDropChances;
+    // =========================================================
 
     private void Start()
     {
         wanderTarget = new GameObject("WanderTarget").transform;
+        currentHealth = maxHealth;
+        // Gán AIPath nếu chưa có
+        if (aiPath == null) aiPath = GetComponent<AIPath>();
     }
 
     private void Update()
@@ -59,14 +88,13 @@ public class BoarController : MonoBehaviour
             return;
         }
 
-        // Hướng ngang trái/phải → chạy và flip
         if (currentState == State.Chill)
         {
             currentAnimation = boarChillRun;
         }
         else if (currentState == State.GoToLastPos)
         {
-            currentAnimation = boarRun; // Chạy nhanh khi đi tới vị trí cuối
+            currentAnimation = boarRun;
         }
         else
         {
@@ -85,32 +113,23 @@ public class BoarController : MonoBehaviour
         currentState = newState;
         if (newState == State.Chase)
         {
-            // Stop wandering logic khi chase
             StopAllCoroutines();
             isWaitingToWander = false;
-            destinationSetter.target = null;
             aiPath.maxSpeed = RunSpeed;
-            
         }
         else if (newState == State.GoToLastPos)
         {
-            // Stop wandering logic và enable pathfinding để đi tới vị trí cuối
             StopAllCoroutines();
             isWaitingToWander = false;
             aiPath.enabled = true;
             destinationSetter.enabled = true;
             aiPath.maxSpeed = walkSpeed;
-
         }
         else if (newState == State.Chill)
         {
             wanderTimer = 0;
-
-            // Disable pathfinding ban đầu
             aiPath.enabled = false;
             destinationSetter.enabled = false;
-
-            // Bắt đầu delay trước khi wander
             if (!isWaitingToWander)
             {
                 StartCoroutine(DelayBeforeWander());
@@ -125,7 +144,6 @@ public class BoarController : MonoBehaviour
 
     private void WanderLogic()
     {
-        // Chỉ wander khi không đang trong trạng thái chờ
         if (isWaitingToWander) return;
 
         if (!aiPath.enabled)
@@ -155,7 +173,6 @@ public class BoarController : MonoBehaviour
         isWaitingToWander = true;
         yield return new WaitForSeconds(idleDelay);
 
-        // Chỉ bắt đầu wander nếu vẫn đang ở state Chill
         if (currentState == State.Chill)
         {
             isWaitingToWander = false;
@@ -167,11 +184,56 @@ public class BoarController : MonoBehaviour
 
     private void CheckReachedLastPos()
     {
-        // Kiểm tra xem đã đến vị trí cuối chưa
         if (aiPath.reachedEndOfPath || aiPath.remainingDistance < 0.5f)
         {
-            // Đã đến vị trí cuối, chuyển về state Chill để bắt đầu delay
             SetState(State.Chill);
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        Debug.Log(gameObject.name + " took " + damage + " damage. Current Health: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        foreach (DropChance drop in orbDropChances)
+        {
+            if (Random.value <= drop.dropRate)
+            {
+                int amountToDrop = Random.Range(drop.minAmount, drop.maxAmount + 1);
+
+                for (int i = 0; i < amountToDrop; i++)
+                {
+                    if (drop.orbPrefab != null)
+                    {
+                        Vector3 spawnPosition = transform.position + new Vector3(
+                            Random.Range(-orbSpawnSpread, orbSpawnSpread),
+                            Random.Range(-orbSpawnSpread, orbSpawnSpread),
+                            0
+                        );
+                        Instantiate(drop.orbPrefab, spawnPosition, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Experience Orb Prefab is not assigned for a drop chance in " + gameObject.name + "!");
+                    }
+                }
+            }
+        }
+
+        Destroy(gameObject);
+        Debug.Log(gameObject.name + " died and potentially dropped multiple types of experience orbs.");
+    }
+
+    void OnMouseDown()
+    {
+        TakeDamage(10f);
     }
 }

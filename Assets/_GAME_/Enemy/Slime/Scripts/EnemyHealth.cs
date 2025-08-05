@@ -1,21 +1,30 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int health = 100;
-    [SerializeField] private GameObject player;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
     [SerializeField] private KnockBack knockback;
 
+    // Thêm các biến này để có thể tùy chỉnh lực và thời gian knockback của kẻ địch
+    [SerializeField] private float enemyKnockbackForce = 10f;
+    [SerializeField] private float enemyKnockbackDuration = 0.2f;
+
     private const int MAX_HEALTH = 100;
 
-    public void TakeDamage(int amount, Vector2 attackerPosition)
+    // Sửa lỗi: Hàm TakeDamage cần nhận đủ 3 tham số để phù hợp với PlayerAttack và các script khác
+    public void TakeDamage(int amount, Vector2 attackerPosition, Rigidbody2D targetRb)
     {
         health -= amount;
-        knockback.ApplyKnockback(attackerPosition);
+
+        // Sửa lỗi: Gọi hàm ApplyKnockback với đủ 3 tham số
+        Vector2 knockbackDirection = ((Vector2)transform.position - attackerPosition).normalized;
+        knockback.ApplyKnockback(targetRb, knockbackDirection * enemyKnockbackForce, enemyKnockbackDuration);
+
         FlashOnHit();
+
         // Dead
         if (health <= 0)
         {
