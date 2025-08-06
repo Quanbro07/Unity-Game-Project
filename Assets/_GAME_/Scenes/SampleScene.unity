@@ -3573,11 +3573,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7208071624095843354, guid: a0f3e6e6bcbf55d44a63011d7832d207, type: 3}
       propertyPath: damage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7208071624095843354, guid: a0f3e6e6bcbf55d44a63011d7832d207, type: 3}
       propertyPath: knockbackForce
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7208071624095843354, guid: a0f3e6e6bcbf55d44a63011d7832d207, type: 3}
       propertyPath: knockbackDuration

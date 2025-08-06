@@ -288,12 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db03db021418ae4fa8ca4e307226f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   spriteRenderer: {fileID: 9042483275494903402}
   animator: {fileID: 276020613511290849}
   knockback: {fileID: 1948461514836794046}
-  enemyKnockbackForce: 10
-  enemyKnockbackDuration: 0.2
+  playerController: {fileID: 0}
 --- !u!114 &1948461514836794046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d4758a41031834fafc7fb09d9a06a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 1
   knockbackForce: 5
   knockbackDuration: 0.2
 --- !u!114 &8365139425622117866

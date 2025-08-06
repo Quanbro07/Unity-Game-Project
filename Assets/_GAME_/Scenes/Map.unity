@@ -639,6 +639,14 @@ PrefabInstance:
       propertyPath: 'terrainChunks.Array.data[0]'
       value: 
       objectReference: {fileID: 3329479914439407745, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
+    - target: {fileID: 7577643674305871954, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_RefCount
+      value: 405
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577643674305871954, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_RefCount
+      value: 405
+      objectReference: {fileID: 0}
     - target: {fileID: 8821603236907147062, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
       propertyPath: m_IsTrigger
       value: 1
