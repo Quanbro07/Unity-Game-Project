@@ -271,6 +271,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
+      propertyPath: maxHp
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
+      propertyPath: fullHeartSprite
+      value: 
+      objectReference: {fileID: -8886713217412807493, guid: 295db30042a47284995d9340e91c5734, type: 3}
+    - target: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
+      propertyPath: emptyHeartSprite
+      value: 
+      objectReference: {fileID: 5784153309599565916, guid: 295db30042a47284995d9340e91c5734, type: 3}
+    - target: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
+      propertyPath: expIncreasePerLevel
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7495707414331502652, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
       propertyPath: m_Name
       value: Player
