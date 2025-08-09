@@ -302,7 +302,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentHp <= 0)
         {
-            Die();
+            PlayerDied();
         }
     }
 
