@@ -885,6 +885,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1406011678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &681581031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2001091218943948786, guid: a0f3e6e6bcbf55d44a63011d7832d207, type: 3}
+  m_PrefabInstance: {fileID: 1628640634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &708231700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5943625839938195042, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
@@ -2257,7 +2262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba010d35690942c418281cab4688b99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boarPrefab: {fileID: 2001091218943948786, guid: a0f3e6e6bcbf55d44a63011d7832d207, type: 3}
+  boarPrefab: {fileID: 681581031}
   stickySnailPrefab: {fileID: 7507100894908306827, guid: 792d0b2d3db8bf647a5294f98b71781e, type: 3}
   player: {fileID: 1761317091}
   spawnPoints:
