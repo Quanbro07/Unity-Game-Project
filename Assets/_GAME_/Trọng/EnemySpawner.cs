@@ -1,49 +1,89 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Kéo Prefab của heo và sên vào 2 ô trống này trong Inspector
+    [Header("Enemy Prefabs")]
     [SerializeField] private GameObject boarPrefab;
     [SerializeField] private GameObject stickySnailPrefab;
 
-    // Thời gian giữa các lần tạo quái
-    [SerializeField] private float spawnInterval = 5f;
+    [Header("Player Target")]
+    [SerializeField] private Transform player;
 
-    // Tạo các đối tượng trống trong Hierarchy rồi kéo vào mảng này
+    [Header("Spawn Points")]
     [SerializeField] private Transform[] spawnPoints;
+
+    [Header("Spawn Settings")]
+    [SerializeField] private float spawnInterval = 5f;
+    [SerializeField] private float spawnRadius = 15f;
+    [SerializeField] private int maxEnemies = 10;      // Giới hạn tổng số quái
+    [SerializeField] private float pointCooldown = 8f; // Cooldown mỗi spawn point
+
+    private Dictionary<Transform, float> lastSpawnTime = new Dictionary<Transform, float>();
+    private List<GameObject> activeEnemies = new List<GameObject>();
 
     void Start()
     {
-        // Gọi hàm SpawnEnemy lần đầu tiên sau 0 giây, và lặp lại sau mỗi spawnInterval
-        InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
+        if (player == null)
+        {
+            Debug.LogError("⚠ Player chưa được gán trong EnemySpawner!");
+            return;
+        }
+        if (spawnPoints.Length == 0)
+        {
+            Debug.LogError("⚠ Chưa có spawn points nào!");
+            return;
+        }
+
+        // Khởi tạo cooldown cho mỗi spawn point
+        foreach (Transform point in spawnPoints)
+        {
+            lastSpawnTime[point] = -pointCooldown;
+        }
+
+        InvokeRepeating(nameof(SpawnEnemy), 0f, spawnInterval);
     }
 
     void SpawnEnemy()
     {
-        // Đảm bảo mảng spawnPoints không rỗng
-        if (spawnPoints == null || spawnPoints.Length == 0)
+        // Xóa quái đã chết khỏi danh sách
+        activeEnemies.RemoveAll(e => e == null);
+
+        // Kiểm tra giới hạn
+        if (activeEnemies.Count >= maxEnemies)
         {
-            Debug.LogError("Spawn Points array is not assigned or is empty!");
+            Debug.Log("⚠ Số lượng quái đã đạt giới hạn, không spawn thêm!");
             return;
         }
 
-        // Chọn ngẫu nhiên một vị trí trong mảng spawnPoints
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-        Transform spawnPoint = spawnPoints[spawnPointIndex];
-
-        // Chọn ngẫu nhiên loại kẻ địch để tạo
-        GameObject enemyToSpawn;
-        if (Random.value > 0.5f) // Ví dụ: 50% là heo, 50% là sên
+        // Lọc spawn points gần player và đã hết cooldown
+        List<Transform> validPoints = new List<Transform>();
+        foreach (Transform point in spawnPoints)
         {
-            enemyToSpawn = boarPrefab;
-        }
-        else
-        {
-            enemyToSpawn = stickySnailPrefab;
+            if (Vector3.Distance(player.position, point.position) <= spawnRadius &&
+                Time.time - lastSpawnTime[point] >= pointCooldown)
+            {
+                validPoints.Add(point);
+            }
         }
 
-        // Tạo ra kẻ địch tại vị trí và góc quay của spawnPoint đã chọn
-        Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
-        Debug.Log("Spawning enemy: " + enemyToSpawn.name);
+        if (validPoints.Count == 0)
+        {
+            Debug.Log("Không có spawn point nào khả dụng!");
+            return;
+        }
+
+        // Chọn ngẫu nhiên 1 điểm spawn hợp lệ
+        Transform chosenPoint = validPoints[Random.Range(0, validPoints.Count)];
+        lastSpawnTime[chosenPoint] = Time.time;
+
+        // Chọn enemy ngẫu nhiên
+        GameObject enemyToSpawn = Random.value > 0.5f ? boarPrefab : stickySnailPrefab;
+
+        // Spawn enemy và lưu vào danh sách quản lý
+        GameObject newEnemy = Instantiate(enemyToSpawn, chosenPoint.position, chosenPoint.rotation);
+        activeEnemies.Add(newEnemy);
+
+        Debug.Log($"Spawned {enemyToSpawn.name} tại {chosenPoint.position}");
     }
 }
