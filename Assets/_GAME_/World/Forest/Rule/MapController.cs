@@ -1,82 +1,55 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement; // Thêm để bắt sự kiện load scene
 
 public class MapController : MonoBehaviour
 {
-    public List<GameObject> terrainChunks; 
-    public GameObject player;              
+    public List<GameObject> terrainChunks; // Danh sách prefab map
+    public GameObject player;              // Gán player trong Inspector
     public float checkerRadius = 0.2f;
     public LayerMask terrainMask;
 
     private PlayerController pm;
     private HashSet<Vector2Int> spawnedChunks = new HashSet<Vector2Int>();
     private const int chunkSize = 20;
-    public float spawnCooldown = 0.2f;
-    private float lastSpawnTime = 0f;
+    public float spawnCooldown = 0.2f; // thời gian giữa các lần spawn (giây)
+private float lastSpawnTime = 0f;
 
     private Vector2Int lastPlayerChunk = Vector2Int.zero;
 
-    void Awake()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        FindPlayer(); // Mỗi khi load scene thì tìm lại player
-    }
-
     void Start()
     {
-        FindPlayer();
+        pm = FindObjectOfType<PlayerController>();
 
         if (player == null)
         {
-            Debug.LogError("Không tìm thấy Player!");
+            Debug.LogError("Player chưa được gán trong MapController!");
             return;
         }
 
+        // Spawn chunk đầu tiên tại vị trí player
         Vector2Int playerChunk = WorldToChunkCoords(player.transform.position);
         lastPlayerChunk = playerChunk;
         SpawnChunk(playerChunk);
+
+        // Spawn 8 chunk xung quanh để tránh bị "cản"
         SpawnNeighborChunks(playerChunk);
     }
 
     void Update()
     {
-        if (player == null) 
-            return;
+        if (player == null || pm == null)
+        return;
 
-        Vector2Int currentChunk = WorldToChunkCoords(player.transform.position);
+    Vector2Int currentChunk = WorldToChunkCoords(player.transform.position);
 
-        if (currentChunk != lastPlayerChunk && Time.time - lastSpawnTime >= spawnCooldown)
-        {
-            lastPlayerChunk = currentChunk;
-            lastSpawnTime = Time.time;
-
-            SpawnChunk(currentChunk);
-            SpawnNeighborChunks(currentChunk);
-        }
-    }
-
-    void FindPlayer()
+    if (currentChunk != lastPlayerChunk && Time.time - lastSpawnTime >= spawnCooldown)
     {
-        if (player == null)
-        {
-            GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
-            if (foundPlayer != null)
-            {
-                player = foundPlayer;
-                pm = player.GetComponent<PlayerController>();
-                Debug.Log("MapController: Đã tìm thấy Player mới.");
-            }
-        }
+        lastPlayerChunk = currentChunk;
+        lastSpawnTime = Time.time;
+
+        SpawnChunk(currentChunk);
+        SpawnNeighborChunks(currentChunk);
+    }
     }
 
     Vector2Int WorldToChunkCoords(Vector3 worldPos)
@@ -101,6 +74,7 @@ public class MapController : MonoBehaviour
 
     void SpawnNeighborChunks(Vector2Int center)
     {
+        // Xung quanh 8 hướng
         Vector2Int[] directions = {
             Vector2Int.up,
             Vector2Int.down,
