@@ -6,6 +6,9 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemy Prefabs")]
     [SerializeField] private GameObject boarPrefab;
     [SerializeField] private GameObject stickySnailPrefab;
+    [SerializeField] private GameObject slimeEnemyChaseImediatelyPrefab;
+    [SerializeField] private GameObject slimeEnemyPrefab;
+
 
     [Header("Player Target")]
     [SerializeField] private Transform player;

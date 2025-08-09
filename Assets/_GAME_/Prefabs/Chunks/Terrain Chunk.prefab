@@ -4215,7 +4215,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 807565551, guid: 5f7fc9fbe1bc310478caf38547cb8412, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 399
+  - m_RefCount: 405
     m_Data:
       e00: 1
       e01: 0
@@ -4234,7 +4234,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 399
+  - m_RefCount: 405
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -4400,7 +4400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainChunks:
-  - {fileID: 0}
+  - {fileID: 3329479914439407745}
   player: {fileID: 0}
   checkerRadius: 0.3
   terrainMask:
