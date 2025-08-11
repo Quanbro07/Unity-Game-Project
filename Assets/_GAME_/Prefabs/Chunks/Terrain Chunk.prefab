@@ -70,7 +70,7 @@ Transform:
   m_GameObject: {fileID: 1540987711252453048}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.82, y: -2.73, z: 0}
+  m_LocalPosition: {x: 0, y: -2.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4379,12 +4379,16 @@ MonoBehaviour:
   - {fileID: 1573332233497409478}
   - {fileID: 5943625839938195042}
   - {fileID: 1540987711252453048}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   propPrefabs:
   - {fileID: 622200013840141705, guid: 633dc0070267d8f4f9e785dccd9984a8, type: 3}
   - {fileID: 7658375826922656403, guid: ca7f2bac4648c7741b9ba58e80b76900, type: 3}
   - {fileID: 7856263709068102552, guid: 3abd732f0143a7949b4e3145ae361a26, type: 3}
-  - {fileID: 4999689618634572650, guid: 742eb98b1e5eeb34987ac229952b89e1, type: 3}
   - {fileID: 6961936855132582447, guid: 122bb68f37f6b154f9cbb01cd90501a5, type: 3}
+  - {fileID: 4999689618634572650, guid: 742eb98b1e5eeb34987ac229952b89e1, type: 3}
   - {fileID: 1951353689015799821, guid: c4bd233fda63f1045b5eafdbcedaaf9a, type: 3}
   - {fileID: 1979430212600215866, guid: 51dfca1775eed5c47b7e49b2ed0a4dc7, type: 3}
 --- !u!114 &4831999415657900872
@@ -4400,13 +4404,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainChunks:
-  - {fileID: 3329479914439407745}
+  - {fileID: 0}
   player: {fileID: 0}
-  checkerRadius: 0.3
-  terrainMask:
-    serializedVersion: 2
-    m_Bits: 0
-  spawnCooldown: 0.2
+  spawnCooldown: 0.1
+  loadRadius: 2
+  unloadRadius: 4
 --- !u!61 &8821603236907147062
 BoxCollider2D:
   m_ObjectHideFlags: 0

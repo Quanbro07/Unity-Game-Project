@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2932130732129506084}
   - component: {fileID: 6488550005923840357}
   - component: {fileID: 7082050721751342085}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PursuingArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 8726568856552974317}
   - component: {fileID: 4913716860802161004}
   - component: {fileID: 5750769658374257746}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SlimeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c765facda9d8342b8ea60de6a25587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damageAmount: 1
+  knockbackForce: 5
+  knockbackDuration: 0.2
 --- !u!114 &6899158504539323302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,11 +373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db03db021418ae4fa8ca4e307226f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  player: {fileID: 7444555347780558143}
   spriteRenderer: {fileID: 8125757974714900604}
   animator: {fileID: 7387302498733297462}
   knockback: {fileID: 144287368272093233}
+  playerController: {fileID: 0}
 --- !u!114 &144287368272093233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,10 +389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e05a9571f1f92649b595971acb93e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5550771950789962005}
-  spriteRender: {fileID: 8125757974714900604}
-  knockbackForce: 5
-  knockbackDuration: 0.2
 --- !u!114 &8726568856552974317
 MonoBehaviour:
   m_ObjectHideFlags: 0

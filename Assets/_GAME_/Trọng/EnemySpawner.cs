@@ -4,11 +4,7 @@ using System.Collections.Generic;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Prefabs")]
-    [SerializeField] private GameObject boarPrefab;
-    [SerializeField] private GameObject stickySnailPrefab;
-    [SerializeField] private GameObject slimeEnemyChaseImediatelyPrefab;
-    [SerializeField] private GameObject slimeEnemyPrefab;
-
+    [SerializeField] private GameObject[] enemyPrefabs; // Kéo tất cả prefab quái vào đây
 
     [Header("Player Target")]
     [SerializeField] private Transform player;
@@ -19,8 +15,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private float spawnInterval = 5f;
     [SerializeField] private float spawnRadius = 15f;
-    [SerializeField] private int maxEnemies = 10;      // Giới hạn tổng số quái
-    [SerializeField] private float pointCooldown = 8f; // Cooldown mỗi spawn point
+    [SerializeField] private int maxEnemies = 10;      
+    [SerializeField] private float pointCooldown = 8f;
 
     private Dictionary<Transform, float> lastSpawnTime = new Dictionary<Transform, float>();
     private List<GameObject> activeEnemies = new List<GameObject>();
@@ -35,6 +31,11 @@ public class EnemySpawner : MonoBehaviour
         if (spawnPoints.Length == 0)
         {
             Debug.LogError("⚠ Chưa có spawn points nào!");
+            return;
+        }
+        if (enemyPrefabs.Length == 0)
+        {
+            Debug.LogError("⚠ Chưa gán enemyPrefabs trong Inspector!");
             return;
         }
 
@@ -52,14 +53,14 @@ public class EnemySpawner : MonoBehaviour
         // Xóa quái đã chết khỏi danh sách
         activeEnemies.RemoveAll(e => e == null);
 
-        // Kiểm tra giới hạn
+        // Kiểm tra giới hạn số lượng quái
         if (activeEnemies.Count >= maxEnemies)
         {
             Debug.Log("⚠ Số lượng quái đã đạt giới hạn, không spawn thêm!");
             return;
         }
 
-        // Lọc spawn points gần player và đã hết cooldown
+        // Lọc spawn points gần player và hết cooldown
         List<Transform> validPoints = new List<Transform>();
         foreach (Transform point in spawnPoints)
         {
@@ -76,14 +77,14 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        // Chọn ngẫu nhiên 1 điểm spawn hợp lệ
+        // Chọn ngẫu nhiên spawn point
         Transform chosenPoint = validPoints[Random.Range(0, validPoints.Count)];
         lastSpawnTime[chosenPoint] = Time.time;
 
-        // Chọn enemy ngẫu nhiên
-        GameObject enemyToSpawn = Random.value > 0.5f ? boarPrefab : stickySnailPrefab;
+        // Chọn ngẫu nhiên enemy từ mảng prefab
+        GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
-        // Spawn enemy và lưu vào danh sách quản lý
+        // Spawn enemy
         GameObject newEnemy = Instantiate(enemyToSpawn, chosenPoint.position, chosenPoint.rotation);
         activeEnemies.Add(newEnemy);
 
