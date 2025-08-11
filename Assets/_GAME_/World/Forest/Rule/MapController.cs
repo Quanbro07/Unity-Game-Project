@@ -1,23 +1,26 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class MapController : MonoBehaviour
 {
+    [Header("Chunk Settings")]
     public List<GameObject> terrainChunks;
-    public GameObject player;
+    public int chunkSize = 20;
+    public int loadRadius = 2;
+    public int unloadRadius = 4;
+    public float spawnDelayPerChunk = 0.02f; // spawn mỗi chunk cách nhau 1 chút
+
+    [Header("References")]
+    public Transform player;
 
     private HashSet<Vector2Int> spawnedChunks = new HashSet<Vector2Int>();
     private Dictionary<Vector2Int, GameObject> chunkObjects = new Dictionary<Vector2Int, GameObject>();
 
-    private const int chunkSize = 20;
-    public float spawnCooldown = 0.2f;
-    private float lastSpawnTime = 0f;
-
-    public int loadRadius = 2;   // bán kính spawn chunk
-    public int unloadRadius = 4; // bán kính xóa chunk (nên > loadRadius)
-
     private Vector2Int lastPlayerChunk = Vector2Int.zero;
+    private Queue<Vector2Int> chunksToSpawnQueue = new Queue<Vector2Int>();
+    private List<GameObject> chunkPool = new List<GameObject>();
 
     void Awake()
     {
@@ -32,6 +35,7 @@ public class MapController : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         FindPlayer();
+        UpdateChunksImmediate();
     }
 
     void Start()
@@ -39,20 +43,21 @@ public class MapController : MonoBehaviour
         FindPlayer();
         if (player != null)
         {
-            UpdateChunks();
+            UpdateChunksImmediate();
         }
+
+        StartCoroutine(SpawnChunksGradually());
     }
 
     void Update()
     {
         if (player == null) return;
 
-        Vector2Int currentChunk = WorldToChunkCoords(player.transform.position);
-        if (currentChunk != lastPlayerChunk && Time.time - lastSpawnTime >= spawnCooldown)
+        Vector2Int currentChunk = WorldToChunkCoords(player.position);
+        if (currentChunk != lastPlayerChunk)
         {
             lastPlayerChunk = currentChunk;
-            lastSpawnTime = Time.time;
-            UpdateChunks();
+            UpdateChunksImmediate();
         }
     }
 
@@ -61,11 +66,7 @@ public class MapController : MonoBehaviour
         if (player == null)
         {
             GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
-            if (foundPlayer != null)
-            {
-                player = foundPlayer;
-                Debug.Log("MapController: Đã tìm thấy Player mới.");
-            }
+            if (foundPlayer != null) player = foundPlayer.transform;
         }
     }
 
@@ -76,24 +77,26 @@ public class MapController : MonoBehaviour
         return new Vector2Int(x, y);
     }
 
-    void UpdateChunks()
+    void UpdateChunksImmediate()
     {
-        Vector2Int playerChunk = WorldToChunkCoords(player.transform.position);
+        if (player == null) return;
 
-        // Spawn chunk trong bán kính loadRadius
+        Vector2Int playerChunk = WorldToChunkCoords(player.position);
+
+        // Xác định các chunk cần spawn
         for (int x = -loadRadius; x <= loadRadius; x++)
         {
             for (int y = -loadRadius; y <= loadRadius; y++)
             {
                 Vector2Int chunkCoords = playerChunk + new Vector2Int(x, y);
-                if (!spawnedChunks.Contains(chunkCoords))
+                if (!spawnedChunks.Contains(chunkCoords) && !chunksToSpawnQueue.Contains(chunkCoords))
                 {
-                    SpawnChunk(chunkCoords);
+                    chunksToSpawnQueue.Enqueue(chunkCoords);
                 }
             }
         }
 
-        // Xoá chunk chỉ khi quá xa unloadRadius
+        // Xóa chunk quá xa
         List<Vector2Int> chunksToRemove = new List<Vector2Int>();
         foreach (var chunk in spawnedChunks)
         {
@@ -102,26 +105,65 @@ public class MapController : MonoBehaviour
                 chunksToRemove.Add(chunk);
             }
         }
+
         foreach (var chunk in chunksToRemove)
         {
-            if (chunkObjects.ContainsKey(chunk))
+            DespawnChunk(chunk);
+        }
+    }
+
+    IEnumerator SpawnChunksGradually()
+    {
+        while (true)
+        {
+            if (chunksToSpawnQueue.Count > 0)
             {
-                Destroy(chunkObjects[chunk]);
-                chunkObjects.Remove(chunk);
+                Vector2Int coords = chunksToSpawnQueue.Dequeue();
+                SpawnChunk(coords);
+                yield return new WaitForSeconds(spawnDelayPerChunk);
             }
-            spawnedChunks.Remove(chunk);
+            else
+            {
+                yield return null;
+            }
         }
     }
 
     void SpawnChunk(Vector2Int chunkCoords)
     {
-        Vector3 spawnPos = new Vector3(chunkCoords.x * chunkSize, chunkCoords.y * chunkSize, 0f);
-        int randIndex = Random.Range(0, terrainChunks.Count);
-        GameObject newChunk = Instantiate(terrainChunks[randIndex], spawnPos, Quaternion.identity);
+        GameObject chunk = GetChunkFromPool();
+        chunk.transform.position = new Vector3(chunkCoords.x * chunkSize, chunkCoords.y * chunkSize, 0f);
+        chunk.SetActive(true);
 
         spawnedChunks.Add(chunkCoords);
-        chunkObjects[chunkCoords] = newChunk;
+        chunkObjects[chunkCoords] = chunk;
+    }
 
-        Debug.Log("Spawned chunk at: " + chunkCoords);
+    void DespawnChunk(Vector2Int chunkCoords)
+    {
+        if (chunkObjects.ContainsKey(chunkCoords))
+        {
+            GameObject chunk = chunkObjects[chunkCoords];
+            chunk.SetActive(false);
+            chunkPool.Add(chunk);
+
+            chunkObjects.Remove(chunkCoords);
+            spawnedChunks.Remove(chunkCoords);
+        }
+    }
+
+    GameObject GetChunkFromPool()
+    {
+        if (chunkPool.Count > 0)
+        {
+            GameObject pooledChunk = chunkPool[0];
+            chunkPool.RemoveAt(0);
+            return pooledChunk;
+        }
+        else
+        {
+            int randIndex = Random.Range(0, terrainChunks.Count);
+            return Instantiate(terrainChunks[randIndex]);
+        }
     }
 }

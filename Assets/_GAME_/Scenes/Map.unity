@@ -293,11 +293,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60501624}
   m_CullTransparentMesh: 1
---- !u!1 &70495544 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7495707414331502652, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
-  m_PrefabInstance: {fileID: 1761317090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &78741723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,7 +2284,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
   m_PrefabInstance: {fileID: 1761317090}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70495544}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bad97393d19251a4b822cdce3493d029, type: 3}
@@ -2946,7 +2941,11 @@ PrefabInstance:
     - target: {fileID: 4831999415657900872, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 70495544}
+      objectReference: {fileID: 1761317091}
+    - target: {fileID: 4831999415657900872, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
+      propertyPath: spawnCooldown
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4831999415657900872, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
       propertyPath: 'terrainChunks.Array.data[0]'
       value: 
