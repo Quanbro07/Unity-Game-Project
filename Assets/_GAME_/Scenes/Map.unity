@@ -711,6 +711,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384332266}
   m_CullTransparentMesh: 1
+--- !u!1 &505388996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7444555347780558143, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+  m_PrefabInstance: {fileID: 809863003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &670145382
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +968,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1406011678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &809863003
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5750769658374257746, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1761317091}
+    - target: {fileID: 7444555347780558143, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_Name
+      value: SlimeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.50103
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.07707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922708476894155380, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
 --- !u!1 &821294875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1104,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821294875}
   m_CullTransparentMesh: 1
+--- !u!1 &856600630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1251534740546410413, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+  m_PrefabInstance: {fileID: 1889074191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &956042091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,9 +2352,9 @@ MonoBehaviour:
   player: {fileID: 1761317091}
   enemyPrefabs:
   - {fileID: 2001091218943948786, guid: a0f3e6e6bcbf55d44a63011d7832d207, type: 3}
-  - {fileID: 1251534740546410413, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+  - {fileID: 856600630}
   - {fileID: 7507100894908306827, guid: 792d0b2d3db8bf647a5294f98b71781e, type: 3}
-  - {fileID: 7444555347780558143, guid: a5fbfbb5b939c3f4d98363ed23c86a30, type: 3}
+  - {fileID: 505388996}
   spawnRadius: 15
   minDistance: 5
   maxEnemies: 20
@@ -2494,6 +2565,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884885732}
   m_CullTransparentMesh: 1
+--- !u!1001 &1889074191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.50103
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.07707
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159440981399848240, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251534740546410413, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: m_Name
+      value: SlimeEnemyChaseImediately
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126432625798884511, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1761317091}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 074f1dea630e9f640a19eb1e4cd7d94d, type: 3}
 --- !u!1 &2105172063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,3 +2970,5 @@ SceneRoots:
   - {fileID: 1406011678}
   - {fileID: 732079353}
   - {fileID: 78741726}
+  - {fileID: 809863003}
+  - {fileID: 1889074191}
