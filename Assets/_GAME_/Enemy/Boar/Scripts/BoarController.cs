@@ -196,12 +196,12 @@ public class BoarController : MonoBehaviour
         Debug.Log(gameObject.name + " took " + damage + " damage. Current Health: " + currentHealth);
 
         if (currentHealth <= 0)
-        {
+        {   
             Die();
         }
     }
 
-    void Die()
+    public void Die()
     {
         foreach (DropChance drop in orbDropChances)
         {
@@ -232,8 +232,5 @@ public class BoarController : MonoBehaviour
         Debug.Log(gameObject.name + " died and potentially dropped multiple types of experience orbs.");
     }
 
-    void OnMouseDown()
-    {
-        TakeDamage(10f);
-    }
+    
 }

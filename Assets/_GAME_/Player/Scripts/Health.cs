@@ -7,12 +7,12 @@ public class Health : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
     [SerializeField] private KnockBack knockback;
-
+    [SerializeField] private BoarController boarController;
     // Thêm tham chiếu đến PlayerController
     [SerializeField] private PlayerController playerController;
-
+    
     private const int MAX_HEALTH = 100;
-    private int health = MAX_HEALTH; // Đặt giá trị health ban đầu
+    [SerializeField] private int health = 5; // Đặt giá trị health ban đầu
 
     public void TakeDamage(int amount, Vector2 attackerPosition, Rigidbody2D targetRb)
     {
@@ -32,7 +32,8 @@ public class Health : MonoBehaviour
             }
             else
             {
-                // Nếu không phải là Player, thì Destroy đối tượng
+                boarController.Die();
+                              // Nếu không phải là Player, thì Destroy đối tượng
                 Destroy(gameObject);
             }
         }

@@ -328,8 +328,5 @@ public class StickySnailController : MonoBehaviour
     }
 
     // Hàm OnMouseDown() chỉ để test nhanh trong Unity Editor, không dùng trong game thực tế
-    void OnMouseDown()
-    {
-        TakeDamage(10f); // Click chuột vào ốc sên để gây 10 sát thương
-    }
+    
 }

@@ -2128,7 +2128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
       propertyPath: maxHp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
       propertyPath: gameOverUI
