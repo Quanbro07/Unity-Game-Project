@@ -1182,6 +1182,17 @@ MonoBehaviour:
     minAmount: 1
     maxAmount: 3
     dropRate: 0.68
+--- !u!114 &858576668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8603832284900998692, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
+  m_PrefabInstance: {fileID: 1761317090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db03db021418ae4fa8ca4e307226f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956042091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,6 +2219,10 @@ PrefabInstance:
       propertyPath: maxHp
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 858576668}
     - target: {fileID: 3328495506605300064, guid: adcf8bc02afc00c498ce4de98e091e19, type: 3}
       propertyPath: gameOverUI
       value: 
