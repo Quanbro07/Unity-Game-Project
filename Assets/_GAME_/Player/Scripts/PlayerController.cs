@@ -11,8 +11,7 @@ public class PlayerController : MonoBehaviour
     // HỆ THỐNG MÁU
     // =========================================================
     [Header("Health System")]
-    public int maxHp = 3;
-    private int currentHp;
+    [SerializeField] private Health health;
     [SerializeField] private GameObject gameOverUI;
     public void PlayerDied()
     {
@@ -140,8 +139,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        currentHp = maxHp;
-        UpdateHeartUI();// Khởi tạo máu ban đầu
+        health.OnHealthChanged += UpdateHeartUI;
+        UpdateHeartUI(healthCurrent: 5, maxHealth: 100);
         // GameManagerController.Instance.UpdatePlayerHPUI(currentHp, maxHp); // Nếu GameManager quản lý UI HP
 
         // Khởi tạo hệ thống kinh nghiệm
@@ -290,36 +289,16 @@ public class PlayerController : MonoBehaviour
     // =========================================================
     // HỆ THỐNG MÁU
     // =========================================================
-    public void TakeDamage(int damage)
+
+
+    void UpdateHeartUI(int healthCurrent, int maxHealth)
     {
-        // Giảm máu (giảm 1 máu khi trúng đòn)
-        currentHp -= damage;
-        currentHp = Mathf.Max(currentHp, 0);
-
-        UpdateHeartUI(); // Gọi hàm để cập nhật hình ảnh trái tim
-
-        Debug.Log("Player took " + damage + " damage! Current HP: " + currentHp);
-
-        if (currentHp <= 0)
-        {
-            PlayerDied();
-        }
-    }
-
-    void UpdateHeartUI()
-    {
-        // Lặp qua tất cả các hình ảnh trái tim
         for (int i = 0; i < heartImages.Length; i++)
         {
-            // Nếu chỉ số i nhỏ hơn máu hiện tại, trái tim sẽ đầy
-            if (i < currentHp)
-            {
+            if (i < healthCurrent)
                 heartImages[i].sprite = fullHeartSprite;
-            }
-            else // Nếu không, trái tim sẽ rỗng
-            {
+            else
                 heartImages[i].sprite = emptyHeartSprite;
-            }
         }
     }
 

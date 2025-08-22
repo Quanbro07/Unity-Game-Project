@@ -31,36 +31,11 @@ public class BoarController : MonoBehaviour
     private bool isWaitingToWander = false;
     #endregion
 
-    #region Health System
-    [Header("Health System")]
-    public float maxHealth = 20f; // Máu tối đa của Boar
-    private float currentHealth;
-    #endregion
-
-    // =========================================================
-    // VÙNG CODE ĐÃ SỬA ĐỔI: Sử dụng một mảng/danh sách các Prefab EXP Orb
-    // =========================================================
-    [Header("Experience Drop")]
-    [SerializeField] private GameObject[] experienceOrbPrefabs;
-    public float orbSpawnSpread = 0.5f;
-
-    [System.Serializable]
-    public struct DropChance
-    {
-        public GameObject orbPrefab;
-        public int minAmount;
-        public int maxAmount;
-        [Range(0f, 1f)]
-        public float dropRate;
-    }
-
-    [SerializeField] private DropChance[] orbDropChances;
-    // =========================================================
 
     private void Start()
     {
         wanderTarget = new GameObject("WanderTarget").transform;
-        currentHealth = maxHealth;
+
         // Gán AIPath nếu chưa có
         if (aiPath == null) aiPath = GetComponent<AIPath>();
     }
@@ -189,48 +164,5 @@ public class BoarController : MonoBehaviour
             SetState(State.Chill);
         }
     }
-
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
-        Debug.Log(gameObject.name + " took " + damage + " damage. Current Health: " + currentHealth);
-
-        if (currentHealth <= 0)
-        {   
-            Die();
-        }
-    }
-
-    public void Die()
-    {
-        foreach (DropChance drop in orbDropChances)
-        {
-            if (Random.value <= drop.dropRate)
-            {
-                int amountToDrop = Random.Range(drop.minAmount, drop.maxAmount + 1);
-
-                for (int i = 0; i < amountToDrop; i++)
-                {
-                    if (drop.orbPrefab != null)
-                    {
-                        Vector3 spawnPosition = transform.position + new Vector3(
-                            Random.Range(-orbSpawnSpread, orbSpawnSpread),
-                            Random.Range(-orbSpawnSpread, orbSpawnSpread),
-                            0
-                        );
-                        Instantiate(drop.orbPrefab, spawnPosition, Quaternion.identity);
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Experience Orb Prefab is not assigned for a drop chance in " + gameObject.name + "!");
-                    }
-                }
-            }
-        }
-
-        Destroy(gameObject);
-        Debug.Log(gameObject.name + " died and potentially dropped multiple types of experience orbs.");
-    }
-
     
 }

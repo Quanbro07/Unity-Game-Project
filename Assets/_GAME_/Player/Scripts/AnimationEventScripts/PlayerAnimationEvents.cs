@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAnimationEvents : MonoBehaviour
@@ -17,6 +18,13 @@ public class PlayerAnimationEvents : MonoBehaviour
         {
             weaponEffectListening.EnableEffect(playerAttack.currentCombo);
         }
+
+        StartCoroutine(AutoDisable());
+    }
+    private IEnumerator AutoDisable()
+    {
+        yield return new WaitForSeconds(0.25f);
+        DisableAll();
     }
 
     public void DisableAll()

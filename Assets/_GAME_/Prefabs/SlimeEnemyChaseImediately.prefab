@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 733800585942219446}
   - component: {fileID: 5646661803301374887}
   - component: {fileID: 6126432625798884511}
+  - component: {fileID: -4763710885008503493}
   m_Layer: 0
   m_Name: SlimeEnemyChaseImediately
   m_TagString: Untagged
@@ -259,7 +260,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8017732977936765846}
   animator: {fileID: 2399374028998246184}
   knockback: {fileID: 1660866860891702105}
+  expDrop: {fileID: -4763710885008503493}
   playerController: {fileID: 0}
+  health: 5
 --- !u!114 &1660866860891702105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +359,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &-4763710885008503493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251534740546410413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eab959f438576746bdbfbc6c772cf1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbSpawnSpread: 0.5
+  orbDropChances:
+  - orbPrefab: {fileID: 6020200514925763559, guid: 137b928a5a334f742b5c23de34a12c39, type: 3}
+    minAmount: 1
+    maxAmount: 10
+    dropRate: 0.68
+  - orbPrefab: {fileID: 6020200514925763559, guid: 8cb03de1953cef247be8dce433091920, type: 3}
+    minAmount: 1
+    maxAmount: 10
+    dropRate: 0.68
 --- !u!1 &4046956274792517467
 GameObject:
   m_ObjectHideFlags: 0

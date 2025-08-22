@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Pathfinding;
 
 public class EnemiesController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class EnemiesController : MonoBehaviour
 
     private float lastSpawnTime;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
+
 
     void Start()
     {
@@ -59,6 +61,13 @@ public class EnemiesController : MonoBehaviour
 
         // Spawn
         GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+        var aiSetter = enemy.GetComponent<AIDestinationSetter>();
+        if (aiSetter != null)
+        {
+            aiSetter.target = player; // player là Transform
+        }
+
         spawnedEnemies.Add(enemy);
     }
 }
