@@ -106,8 +106,7 @@ public class GameManagerController : MonoBehaviour // Tên class đã được �
 
     public void QuitGame()
     {
-        Debug.Log("Quit Game!");
-        Application.Quit();
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     // === HÀM HP ===

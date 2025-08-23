@@ -4405,10 +4405,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainChunks:
   - {fileID: 0}
-  player: {fileID: 0}
-  spawnCooldown: 0.1
+  chunkSize: 20
   loadRadius: 2
   unloadRadius: 4
+  spawnDelayPerChunk: 0.02
+  player: {fileID: 0}
 --- !u!61 &8821603236907147062
 BoxCollider2D:
   m_ObjectHideFlags: 0
