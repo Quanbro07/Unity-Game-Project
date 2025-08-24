@@ -984,70 +984,6 @@ Transform:
   - {fileID: 1881845305}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &740756589
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 740756591}
-  - component: {fileID: 740756590}
-  - component: {fileID: 740756592}
-  m_Layer: 0
-  m_Name: ChunkManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &740756590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740756589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ce4c4daa39a5d41886dc394a593975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chunkPrefabs:
-  - {fileID: 3329479914439407745, guid: dc462f37fdab2f14186ad2cb2cb3c5d4, type: 3}
-  chunkSize: 16
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!4 &740756591
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740756589}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.53488, y: -1.09297, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &740756592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740756589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3452c7f222babf04abadcdf74067fa69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 740756590}
 --- !u!1 &785825199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,7 +1391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAA4Iew8abS0XAIAABcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMziVjCEmht9YhpIcEJrSTiy9CWmMNsuTRI7yG/96VbGOXTk8s3367++1DPhOhbAXMabMwgr9qDuTbgASbfBl0zhc40K1Wa3GClvMhuCsCiUbOO3VCIz4KYVaX4Ixg39VWBnKCoFci16ac8y2k2jqLcE6lBXQZ7UK0Qug8IAf8Gc5CyBGt8ddgndCaJYMLmgyUA9NRW2JLq1leMUnLCniQ3JEfkpaOViQqbKfhBOlMSylso4W4YxV7TWllPXaCBC4o9hYFjO7uEShAbAsXlPbDl3luwTWyDD0+CYNDqvOSH7qeXEntrtb2SaUPlcYPj1FVnfT1H/9wFN250eVLW3cUe3KFYLt3emTUut5o+/BTT3oc0Z7KHd1I+ChAvemF0V5xdDrjQ6i3MH7q/l5bSwtguw6vpd6Avvr/gkIPl9j9IZWi3ATX3aQG1lLHicf1g8Hd/ETB8ThskwLRoOK3hV9027+ixvEsjHXoarpUQd5GexOoZB5nFrrxLtVGQYQb0RUoKt1xhWnc7QpvfL2yN55nGt5LU7zxtc/gJiTCHT9Jblwrvb8uyxZ6/wq2WHonhYJOdHC84ZxSrVR9Yf2ZtGFrb3LKemFbL/jfp0UmNLmfcAqP7IHR2ZgP76c8mcxGs3w8HY+m+YbE2xMK+6RyVQttxoNbU11yhXfWfkYGC0OreO3c0P1CnErdFyhUrtfMAKhlneKqHAxWwYfJ51zghNbgnFBx4eScEanZDnh2rZnFVucHZ2jWZclIJT61C0hG0vjhyEiAr8e8MvApYB+Kt8ku5PIHUEsDBBQAAAgIAAA4IezPGthxbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSSaKBsUlKYqpZsmlyoqVRiq6xRYqBiaWhZZqRhZGhRVqSUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAA4Iew8abS0XAIAABcFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAA4IezPGthxbQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
+    dataString: UEsDBBQAAAgIAAA4IezJb2r0cgIAAC0FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzk3GdggJvbUOIT0kYUI7ufgipDXWIEsefQRIhv/elWxjl55Y3n69fbvyFxHKNsCcNksj+LPmQL5PSLDJt8ngfIID3Wq1Fp/Qx7wL7qoQRGPMG3VCI56GNKtrcEawH2orQ3CCoFei1KZe8C3k2jqLcEmlBXQZ7UK2QuhrQg74czUPKUe0srtgfaI1TyYnNBkoB2YUmlwn87vZ7Wx216Uk1+lsmiZpmk271DbTKyZp3QAPYwwF0iTpmwUzhiocsosKAzEtpbAdQ+KOTVQgp431OB8GcEFx4kgrvb5BoAKxrVzgP05/LUsLrhPE0OODMChdW5f81K2eNbW7lt0HlT50ym5nkVVb9Pk//1Ua3aXR9VPfN41DuUqw3Rs9MmrdSPAx/DCiHkXaU7mjGwnvFagXvTTaK45OZ3xI9Rayh+HvebS8ArYb8JbqBeibQfVe8n67YYZTnP6QS1Fv4h6nLbCWOioejwIM7uYXEo4nY7sSiAYWfyz8ptvxbXWOR2GsQ1c3pQr0NtqbEEoWUbMwjXe5Ngoi3JFuQFHpjiss4y5XeOEbtb3wPNLwirrmna9/HBcpER7ik+TCtdL787JspffPYKtX76RQMJAOjhfUKddKtRc21qRPW3tTUjZK23rB/z0tMqXJzZRTmLFbRucZv7q558l0ns7L7D5L78sNibcnFM5J5aol2smDW1NDcYV31n9cJktDm3jt3ND9UnzWekxQqFKvmQFQr22JM3Mw2AUfJl9wgQqtwTmh4sLJV0GkZjvgxblnEUddHJyhxVClII340C4gBcnj56QgAT4f88rAh4B9aN4XO5HTX1BLAwQUAAAICAAAOCHszxrYcW0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kkmigbFJSmKqWbJpcqKlUYqusUWKgYmloWWakYWRoUVaklIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAOCHsyW9q9HICAAAtBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAOCHszxrYcW0AAAB4AAAACQAkAAAAAAAAAAAAAAC/AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHcDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -3286,4 +3222,3 @@ SceneRoots:
   - {fileID: 1889074191}
   - {fileID: 3463228201722634799}
   - {fileID: 287192006}
-  - {fileID: 740756591}
