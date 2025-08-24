@@ -15,7 +15,7 @@ public class BigSlimeController : MonoBehaviour
     private int slimeWalkUp = Animator.StringToHash("BigSlime_WalkUp");
     #endregion
 
-   
+    
 
     private void Update()
     {

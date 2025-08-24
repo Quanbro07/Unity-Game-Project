@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 942445816591807400}
   - component: {fileID: 4651344925460416952}
   - component: {fileID: 1085516830944428162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: overworld_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

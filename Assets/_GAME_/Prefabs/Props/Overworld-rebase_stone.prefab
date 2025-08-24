@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2282851520770433734}
   - component: {fileID: 8992976637905067238}
   - component: {fileID: 7565980753455237197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Overworld-rebase_stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

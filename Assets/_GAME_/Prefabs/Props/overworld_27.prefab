@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4725020048519794064}
   - component: {fileID: 1439731266663986879}
   - component: {fileID: -2558201335655237861}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: overworld_27
   m_TagString: Untagged
   m_Icon: {fileID: 0}

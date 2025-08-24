@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1378488619495793727}
   - component: {fileID: 5916760150045426322}
   - component: {fileID: 9130917886578871330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: overworld_grave
   m_TagString: Untagged
   m_Icon: {fileID: 0}

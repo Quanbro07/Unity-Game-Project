@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2270832282754564203}
   - component: {fileID: 5994564191671331178}
   - component: {fileID: -5781423316377875094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Overworld-rebase_log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
