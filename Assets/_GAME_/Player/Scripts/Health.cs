@@ -1,46 +1,78 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
-    [SerializeField] private GameObject player; 
+    public event Action<int, int> OnHealthChanged;
+
+    // ... các biến khác của bạn ...
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
     [SerializeField] private KnockBack knockback;
-
+    [SerializeField] private ExpDrop expDrop;
+    // Thêm tham chiếu đến PlayerController
+    [SerializeField] private PlayerController playerController;
+    
     private const int MAX_HEALTH = 100;
-        
-    public void TakeDamage(int amount,Vector2 attackerPosition)
+    [SerializeField] private int health = 5; // Đặt giá trị health ban đầu
+    private bool isDead = false;
+
+    private void Awake()
     {
+        expDrop = GetComponent<ExpDrop>();
+        OnHealthChanged?.Invoke(health, MAX_HEALTH); // báo UI ngay khi start
+    }
+
+    public void TakeDamage(int amount, Vector2 attackerPosition, Rigidbody2D targetRb)
+    {
+        if (isDead) return;
+
         health -= amount;
-        knockback.ApplyKnockback(attackerPosition);
+        OnHealthChanged?.Invoke(health, MAX_HEALTH);
 
-        if (player.CompareTag("Player"))
-        {
-            PlayerAttack playerAttack = player.GetComponent<PlayerAttack>();
-            if (playerAttack != null)
-            {
-                playerAttack.ForceCancelAttack(); // Ngắt attack + combo + slash
-            }
+        Vector2 knockbackDirection = ((Vector2)transform.position - attackerPosition).normalized;
+        knockback.ApplyKnockback(targetRb, knockbackDirection * 10f, 0.2f); // Sử dụng giá trị cố định hoặc biến của bạn
 
-            // Flash & disable effects nếu cần
-            FlashOnHit();
-        }
+        FlashOnHit();
 
-
-        // Dead
         if (health <= 0)
         {
-            Debug.Log("Enemy Destroyed");
-            Destroy(gameObject);
+            isDead = true;
+
+            if (playerController != null)
+            {
+                // Gọi hàm PlayerDied() trong PlayerController
+                playerController.PlayerDied();
+            }
+            else
+            {
+                if (gameObject.CompareTag("BigSlime"))
+                {
+                    GameObject managerObj = GameObject.Find("EnemyManager");
+                    if (managerObj != null)
+                    {
+                        SlimeSpawner slimeSpawner = managerObj.GetComponent<SlimeSpawner>();
+                        if (slimeSpawner != null)
+                        {
+                            Vector3 deadPoint = transform.position;
+                            Vector3 spawnPoint1 = deadPoint - new Vector3(1, 1, 0);
+                            Vector3 spawnPoint2 = deadPoint + new Vector3(1, 1, 0);
+
+                            slimeSpawner.SpawnEnemy(spawnPoint1);
+                            slimeSpawner.SpawnEnemy(spawnPoint2);
+                        }
+                    }
+                }
+
+                expDrop.Die();
+                              // Nếu không phải là Player, thì Destroy đối tượng
+            }
         }
     }
 
-
     public void FlashOnHit()
     {
-        Debug.Log("FLASH");
         StartCoroutine(FlashCoroutine());
     }
 
@@ -48,11 +80,6 @@ public class Health : MonoBehaviour
     {
         if (animator != null)
             animator.enabled = false;
-
-        // Tắt slash hoặc effect liên quan ngay từ đầu
-        PlayerAnimationEvents playerEvents = player.GetComponent<PlayerAnimationEvents>();
-        if (playerEvents != null)
-            playerEvents.DisableAll(); // ← Tắt slash ngay
 
         for (int i = 0; i < 3; i++)
         {
@@ -65,5 +92,4 @@ public class Health : MonoBehaviour
         if (animator != null)
             animator.enabled = true;
     }
-
 }

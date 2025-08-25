@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 3551073316397263627}
   - component: {fileID: 7843049297078086139}
   - component: {fileID: 174698356201006607}
+  - component: {fileID: -3239274834706575102}
   m_Layer: 0
   m_Name: StickySnail
   m_TagString: Untagged
@@ -522,6 +523,14 @@ MonoBehaviour:
   idleDelay: 1
   player: {fileID: 0}
   fleeDistance: 5
+  maxHealth: 15
+  orbSpawnSpread: 0.5
+  experienceOrbPrefabsToDrop:
+  - {fileID: 6020200514925763559, guid: 43dd06810fd33384b9af821aaa2a79bf, type: 3}
+  - {fileID: 6020200514925763559, guid: b65c5c0a2845c594f9937882ef3057ae, type: 3}
+  experienceOrbDropCounts: 0400000002000000
+  minExpValuePerOrb: 1
+  maxExpValuePerOrb: 100
 --- !u!114 &3551073316397263627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,10 +543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e05a9571f1f92649b595971acb93e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 4643913239509877108}
-  spriteRender: {fileID: 7047684405443328196}
-  knockbackForce: 3
-  knockbackDuration: 0.2
 --- !u!114 &7843049297078086139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +555,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c765facda9d8342b8ea60de6a25587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damageAmount: 1
+  knockbackForce: 5
+  knockbackDuration: 0.2
 --- !u!114 &174698356201006607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,8 +570,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db03db021418ae4fa8ca4e307226f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  player: {fileID: 7507100894908306827}
   spriteRenderer: {fileID: 7047684405443328196}
   animator: {fileID: 2260344030758658974}
   knockback: {fileID: 3551073316397263627}
+  expDrop: {fileID: -3239274834706575102}
+  playerController: {fileID: 0}
+  health: 10
+--- !u!114 &-3239274834706575102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7507100894908306827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eab959f438576746bdbfbc6c772cf1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbSpawnSpread: 0.5
+  orbDropChances:
+  - orbPrefab: {fileID: 6020200514925763559, guid: 96844286d1335a246953745198d588ae, type: 3}
+    minAmount: 1
+    maxAmount: 5
+    dropRate: 0.68
+  - orbPrefab: {fileID: 6020200514925763559, guid: 8de0db9539768934988d6ceb1629dced, type: 3}
+    minAmount: 1
+    maxAmount: 3
+    dropRate: 0.68
+  - orbPrefab: {fileID: 6020200514925763559, guid: 137b928a5a334f742b5c23de34a12c39, type: 3}
+    minAmount: 1
+    maxAmount: 9
+    dropRate: 0.68

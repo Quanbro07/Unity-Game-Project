@@ -20,8 +20,18 @@ public class PlayerAttack : MonoBehaviour
 
     private Coroutine attackCoroutine;
 
+    [Header("Attack Settings")]
+    [SerializeField] private float attackDamage = 10f;
+
+    private Rigidbody2D playerRb;
+
     public bool IsAttack => isAttack;
     public int currentCombo => comboStep;
+
+    private void Awake()
+    {
+        playerRb = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -114,5 +124,20 @@ public class PlayerAttack : MonoBehaviour
         isAttack = false;
         attackArea.SetActive(false);
         ResetCombo();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Health enemyHealth = other.GetComponent<Health>();
+
+        if (enemyHealth != null)
+        {
+            Rigidbody2D enemyRb = other.GetComponent<Rigidbody2D>();
+            if (enemyRb != null)
+            {
+                enemyHealth.TakeDamage((int)attackDamage, transform.position, enemyRb);
+                Debug.Log("Hit Enemy: " + other.name + " for " + attackDamage + " damage.");
+            }
+        }
     }
 }
